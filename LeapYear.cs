@@ -9,37 +9,19 @@ namespace Neckington
     public class LeapYear
     {
 
-        public LeapYear(int ParamNumberYear) {
-
-            NumberYear = ParamNumberYear;
-
-        }
-
-        public static int DialogLeapYearCalculation()
-        { 
-            Console.Clear();
-            Console.WriteLine("You have select the calculator of Leap-Year");
-            Console.WriteLine("Please write the year you want to calculate: ");
-            string entry1 = Console.ReadLine() ?? "0";
-            
-            int NumberYear = int.Parse(entry1);
-          
-            return NumberYear;
-        }
-        
-        public static string YearCalculation(int NumberYear) 
+        public static void DialogLeapYearCalculation()
         {
-            if (NumberYear % 4 == 0 && NumberYear % 100 != 0 || NumberYear % 400 == 0) {
-                  return "It's a leap year";
-            }
-            else
-            { 
-                return "Isn't a leap-year";
-            }
-            
+            Console.Clear();
+            Console.WriteLine("Write the year you want to evaluate");
+            string year1 = Console.ReadLine() ?? "0";
+
+            int year = int.Parse(year1);
+
+            bool esBisiesto = DateTime.IsLeapYear(year);
+            Console.WriteLine($"{year} is a leap year? {esBisiesto}");
         }
 
-        private int NumberYear;
+     
     }
 }
 

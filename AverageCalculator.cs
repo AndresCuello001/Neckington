@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
  namespace Neckington
     {
-   public class PromCalculator
+   public class AverageCalculator
     {
-
-        public PromCalculator(int[] ParamBunchOfNumbers) 
+        public AverageCalculator(int[] ParamBunchOfNumbers) 
         {
             bunchOfNumbers = ParamBunchOfNumbers;  
         }
@@ -24,20 +23,24 @@ using System.Threading.Tasks;
             int numberOfArrays = int.Parse(n);
 
             int[] arrayNumbers = new int[numberOfArrays];
-
+           
+            int sum = 0;
             try
             {
                 for (int i = 0; i < arrayNumbers.Length; i++)
                 {
                     Console.Write($"Introduce the element{i}: ");
                     arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
+                    sum += arrayNumbers[i];
                 }
-
+                
+                double average = (double)sum / arrayNumbers.Length;
+                Console.WriteLine("This is the average of your elements: " + average);
             }
-            catch (IndexOutOfRangeException)
-            {
+            catch (IndexOutOfRangeException e)
+            { 
 
-                Console.WriteLine("Error");
+                Console.WriteLine("Error" + e.Message);
             }
             
 

@@ -14,6 +14,7 @@ namespace Neckington
     {
         public void StartProgram()
         {
+            
                 Console.Clear();
                 Console.WriteLine("Welcome to Neckington");
                 Console.WriteLine("What options are you looking for?");
@@ -27,34 +28,34 @@ namespace Neckington
 
                 int NumberSelection = int.Parse(selection);
 
+
                 switch (NumberSelection)
                 {
                     case 1:
-                    ContactStorage.ContactDialogMethod();
-                    break;
+                        ContactStorage.ContactDialogMethod();
+                        break;
 
                     case 2:
-                  int leapYearToCalculate =   LeapYear.DialogLeapYearCalculation(); 
-                    LeapYear.YearCalculation
-                    
-                    break; 
-                
+                        LeapYear.DialogLeapYearCalculation();
+                        break;
+
                     case 3:
-                    PromCalculator.PromForm();
-                    break;
-                
+                        AverageCalculator.PromForm();
+                        break;
                     case 4:
-
-                    break;
-
-                    default:
+                     NumOrganizer.NumOrganizerMethod();
+                        break;
+                    case 5: 
+                    
+                
+                 default:
                         break;
                 }
         }
-        
 
-        private bool ejecutando;
+            
         
+        private bool Ejecutando = true;
     }
 }
 
