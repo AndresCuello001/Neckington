@@ -34,22 +34,25 @@ namespace Neckington
                     case 1:
                         ContactStorage.ContactDialogMethod();
                         break;
-
                     case 2:
                         LeapYear.DialogLeapYearCalculation();
-                        break;
+                    break;
 
                     case 3:
-                        AverageCalculator.PromForm();
-                        break;
+                    int[] resultAverageDialog = AverageCalculator.PromForm();
+                    AverageCalculator.ProFormCalculateMethod(resultAverageDialog);    
+                    break;
                     case 4:
-                     NumOrganizer.NumOrganizerMethod();
-                        break;
-                    case 5: 
+                   int[]resultArrayDialog = NumOrganizer.NumOrganizerMethod();
+                    NumOrganizer.NumOrganizerServiceMethod(resultArrayDialog);
+                    break;
                     
+                    case 5: 
+                    // GenderGuesser.MethodAttempt();
+                    break;
                 
-                 default:
-                        break;
+                default:
+                 break;
                 }
         }
 

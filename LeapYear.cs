@@ -17,8 +17,8 @@ namespace Neckington
 
             int year = int.Parse(year1);
 
-            bool esBisiesto = DateTime.IsLeapYear(year);
-            Console.WriteLine($"{year} is a leap year? {esBisiesto}");
+            bool isLeap = DateTime.IsLeapYear(year);
+            Console.WriteLine($"{year} is a leap year? {isLeap}");
         }
 
      

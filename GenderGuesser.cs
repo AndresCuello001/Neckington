@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Neckington
 {
-    internal class GenderGuesser
+    public class GenderGuesser
     {
-        
-    
-    
+        public static void GenderGuesseDialogMethod()
+        {
+            
+
+        }
     }
 }

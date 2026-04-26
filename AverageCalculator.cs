@@ -13,7 +13,7 @@ using System.Threading.Tasks;
             bunchOfNumbers = ParamBunchOfNumbers;  
         }
 
-        public static void PromForm() {
+        public static int[] PromForm() {
 
             Console.Clear();
             Console.WriteLine("You have select the PromCalculator: ");
@@ -23,7 +23,12 @@ using System.Threading.Tasks;
             int numberOfArrays = int.Parse(n);
 
             int[] arrayNumbers = new int[numberOfArrays];
-           
+            return arrayNumbers;
+        
+        }
+
+        public static void ProFormCalculateMethod(int[] arrayNumbers){  
+            
             int sum = 0;
             try
             {
