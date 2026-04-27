@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Neckington.Helpers;
+using System.Collections;
 using System.ComponentModel.Design;
 
 namespace Neckington
@@ -7,7 +8,8 @@ namespace Neckington
     {
         static void Main(string[] args)
         {
-          Menu.ProgramInit();
+            int menuUtilityValue = MenuUtils.MenuDialog();
+            MenuUtils.OptionMethod(menuUtilityValue);
         }
     }
 }

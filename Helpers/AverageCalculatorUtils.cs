@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
- namespace Neckington
+namespace Neckington.Helpers
  {
-   public class AverageCalculator
+   public class AverageCalculatorUtils
     {
       
 

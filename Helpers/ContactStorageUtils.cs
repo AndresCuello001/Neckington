@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington
+namespace Neckington.Helpers
 {
-    public  class ContactStorage
+    public  class ContactStorageUtils
     {
-        public static void ContactDialogMethod() {
+        public static void ContactDialog() {
 
             Console.Clear();
             Console.WriteLine("You have select adding contact");
@@ -24,7 +24,7 @@ namespace Neckington
             
             int Number = int.Parse(entrada4);
            
-            var Contact = new ContactStorage()
+            var Contact = new ContactStorageUtils()
             {
 
 

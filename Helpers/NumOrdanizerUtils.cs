@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington
+namespace Neckington.Helpers
 {
-    public class NumOrganizer
+    public class NumOrganizerUtils
     {
         public static int[] NumOrganizerMethod()
         {

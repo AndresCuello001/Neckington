@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington
+namespace Neckington.Helpers
 {
     public class MenuUtils
     {
@@ -18,32 +18,34 @@ namespace Neckington
             Console.WriteLine("3. PromCalculaor ");
             Console.WriteLine("4. Number Ordanizer");
             Console.WriteLine("5. GenderGuesser");
-            string selection = (Console.ReadLine() ?? "0");
+            string selection = Console.ReadLine() ?? "0";
             int NumberSelection = int.Parse(selection);
+            
             return NumberSelection;
         }
 
 
-        public static void SwitchCaseMenuMethod(int NumberSelection ) {
+        public static void OptionMethod(int NumberSelection ) {
 
             switch (NumberSelection)
             {
                 case 1:
-                    ContactStorage.ContactDialogMethod();
+                    ContactStorageUtils.ContactDialog();
                 break;
                 case 2:
-                    LeapYear.LeapYearDialog();
+                    LeapYearUtils.LeapYearDialog();
                 break;
                 case 3:
-                    int[] resultAverageDialog = AverageCalculator.AverageDialog();
-                    AverageCalculator.AverageCalculateMethod(resultAverageDialog);
+                    int[] resultAverageDialog = AverageCalculatorUtils.AverageDialog();
+                    AverageCalculatorUtils.AverageCalculateMethod(resultAverageDialog);
                 break;
                 case 4:
-                    int[] resultArrayDialog = NumOrganizer.NumOrganizerMethod();
-                    NumOrganizer.NumOrganizerServiceMethod(resultArrayDialog);
+                    int[] resultArrayDialog = NumOrganizerUtils.NumOrganizerMethod();
+                    NumOrganizerUtils.NumOrganizerServiceMethod(resultArrayDialog);
                 break;
                 case 5:
-                    // GenderGuesser.MethodAttempt();
+                     int resultGenderGuesserDialog = GenderGuesserUtils.GenderGuesserDialogMethod();
+                      GenderGuesserUtils.GenderGuesserMethod(resultGenderGuesserDialog);
                 break;
 
                 default:

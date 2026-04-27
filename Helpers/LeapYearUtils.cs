@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington
+namespace Neckington.Helpers
 {
-    public class LeapYear
+    public class LeapYearUtils
     {
         public static void LeapYearDialog()
         {
