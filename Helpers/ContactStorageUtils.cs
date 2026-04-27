@@ -1,43 +1,49 @@
-﻿using System;
+﻿using Neckington.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Neckington.Helpers
 {
-    public  class ContactStorageUtils
+    public class ContactStorageUtils
     {
-        public static void ContactDialog() {
-
+        public static void ContactDialog()
+        {
             Console.Clear();
             Console.WriteLine("You have select adding contact");
             Console.WriteLine("Write the contact name:");
-            string entrada = Console.ReadLine() ?? "0";
+            string Name = Console.ReadLine() ?? "0";
             Console.WriteLine("Write the contact LastName: ");
-            string entrada2 = Console.ReadLine() ?? "0";
+            string LastName = Console.ReadLine() ?? "0";
             Console.WriteLine("Write the contact Age: ");
-            string entrada3 = Console.ReadLine() ?? "0";
-            int Age1 = int.Parse(entrada3);
+            string Ageparse = Console.ReadLine() ?? "0";
+            int Age = int.Parse(Ageparse);
             Console.WriteLine("Write the contact Number: ");
             string entrada4 = Console.ReadLine() ?? "0";
-            
-            int Number = int.Parse(entrada4);
-           
-            var Contact = new ContactStorageUtils()
+
+            long Number = long.Parse(entrada4);
+
+            var newContact = new ContactItem()
             {
-
-
-
-
-
-
+                FirstName = Name,
+                LastName = LastName,
+                Age = Age,
+                Number = Number
             };
-        
-            
-            
+                  Console.WriteLine("Contacto Guardado");
         }
-    
-    
+       
+        
+        
     }
+
+        
+        
+    
 }
+
+

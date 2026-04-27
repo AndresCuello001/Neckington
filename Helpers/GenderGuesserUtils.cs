@@ -15,7 +15,7 @@ namespace Neckington.Helpers
             Console.WriteLine("You have selected the Gender guesser");
             Console.WriteLine("Next you have to answer these follow questions to guess your gender");
 
-            Console.WriteLine("If you're a men type whatever number beetween 1 and 10 ");
+            Console.WriteLine("If you're a men type whatever number between 1 and 10 ");
             string enter1 = Console.ReadLine() ?? "0";
 
             int enterValue = int.Parse(enter1); 
