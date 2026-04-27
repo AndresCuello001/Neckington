@@ -7,10 +7,7 @@ namespace Neckington
     {
         static void Main(string[] args)
         {
-            Menu menu1 = new Menu();
-            menu1.StartProgram();
-        
+          Menu.ProgramInit();
         }
-       
     }
 }

@@ -9,15 +9,7 @@ using System.Threading.Tasks;
 namespace Neckington
 {
     public class NumOrganizer
-
     {
-        public NumOrganizer(int [] ParamarrayOrganizer) { 
-        
-            ArrayOrganizer = ParamarrayOrganizer;
-        
-        }
-
-        
         public static int[] NumOrganizerMethod()
         {
             Console.Clear();
@@ -60,9 +52,7 @@ namespace Neckington
                 Console.WriteLine("Error" + e.Message);
             }
         }
-
-
-        private int[] ArrayOrganizer; 
+ 
     }
 }
     // private int Numbers = 10;

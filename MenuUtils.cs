@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Neckington
+{
+    public class MenuUtils
+    {
+        public static int MenuDialog() {
+
+            Console.Clear();
+            Console.WriteLine("Welcome to Neckington");
+            Console.WriteLine("What options are you looking for?");
+            Console.WriteLine("1. Storage Contacts");
+            Console.WriteLine("2. Calculate Leap-Year ");
+            Console.WriteLine("3. PromCalculaor ");
+            Console.WriteLine("4. Number Ordanizer");
+            Console.WriteLine("5. GenderGuesser");
+            string selection = (Console.ReadLine() ?? "0");
+            int NumberSelection = int.Parse(selection);
+            return NumberSelection;
+        }
+
+
+        public static void SwitchCaseMenuMethod(int NumberSelection ) {
+
+            switch (NumberSelection)
+            {
+                case 1:
+                    ContactStorage.ContactDialogMethod();
+                break;
+                case 2:
+                    LeapYear.LeapYearDialog();
+                break;
+                case 3:
+                    int[] resultAverageDialog = AverageCalculator.AverageDialog();
+                    AverageCalculator.AverageCalculateMethod(resultAverageDialog);
+                break;
+                case 4:
+                    int[] resultArrayDialog = NumOrganizer.NumOrganizerMethod();
+                    NumOrganizer.NumOrganizerServiceMethod(resultArrayDialog);
+                break;
+                case 5:
+                    // GenderGuesser.MethodAttempt();
+                break;
+
+                default:
+                    break;
+            }
+        }
+    }
+}

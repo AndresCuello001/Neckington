@@ -8,7 +8,6 @@ namespace Neckington
 {
     public  class ContactStorage
     {
-  
         public static void ContactDialogMethod() {
 
             Console.Clear();
@@ -22,9 +21,9 @@ namespace Neckington
             int Age1 = int.Parse(entrada3);
             Console.WriteLine("Write the contact Number: ");
             string entrada4 = Console.ReadLine() ?? "0";
-
+            
             int Number = int.Parse(entrada4);
-
+           
             var Contact = new ContactStorage()
             {
 

@@ -5,15 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
  namespace Neckington
-    {
+ {
    public class AverageCalculator
     {
-        public AverageCalculator(int[] ParamBunchOfNumbers) 
-        {
-            bunchOfNumbers = ParamBunchOfNumbers;  
-        }
+      
 
-        public static int[] PromForm() {
+        public static int[] AverageDialog() {
 
             Console.Clear();
             Console.WriteLine("You have select the PromCalculator: ");
@@ -27,7 +24,7 @@ using System.Threading.Tasks;
         
         }
 
-        public static void ProFormCalculateMethod(int[] arrayNumbers){  
+        public static void AverageCalculateMethod(int[] arrayNumbers){  
             
             int sum = 0;
             try

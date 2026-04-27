@@ -8,8 +8,7 @@ namespace Neckington
 {
     public class LeapYear
     {
-
-        public static void DialogLeapYearCalculation()
+        public static void LeapYearDialog()
         {
             Console.Clear();
             Console.WriteLine("Write the year you want to evaluate");
@@ -20,8 +19,6 @@ namespace Neckington
             bool isLeap = DateTime.IsLeapYear(year);
             Console.WriteLine($"{year} is a leap year? {isLeap}");
         }
-
-     
     }
 }
 

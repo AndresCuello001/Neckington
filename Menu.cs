@@ -12,53 +12,11 @@ namespace Neckington
 {
     public class Menu
     {
-        public void StartProgram()
+        public static void ProgramInit()
         {
-            
-                Console.Clear();
-                Console.WriteLine("Welcome to Neckington");
-                Console.WriteLine("What options are you looking for?");
-                Console.WriteLine("1. Storage Contacts");
-                Console.WriteLine("2. Calculate Leap-Year ");
-                Console.WriteLine("3. PromCalculaor ");
-                Console.WriteLine("4. Number Ordanizer");
-                Console.WriteLine("5. GenderGuesser");
-
-                string selection = (Console.ReadLine() ?? "0");
-
-                int NumberSelection = int.Parse(selection);
-
-
-                switch (NumberSelection)
-                {
-                    case 1:
-                        ContactStorage.ContactDialogMethod();
-                        break;
-                    case 2:
-                        LeapYear.DialogLeapYearCalculation();
-                    break;
-
-                    case 3:
-                    int[] resultAverageDialog = AverageCalculator.PromForm();
-                    AverageCalculator.ProFormCalculateMethod(resultAverageDialog);    
-                    break;
-                    case 4:
-                   int[]resultArrayDialog = NumOrganizer.NumOrganizerMethod();
-                    NumOrganizer.NumOrganizerServiceMethod(resultArrayDialog);
-                    break;
-                    
-                    case 5: 
-                    // GenderGuesser.MethodAttempt();
-                    break;
-                
-                default:
-                 break;
-                }
+           int menuUtilityValue = MenuUtils.MenuDialog();
+            MenuUtils.SwitchCaseMenu(menuUtilityValue);
         }
-
-            
-        
-        private bool Ejecutando = true;
     }
 }
 
