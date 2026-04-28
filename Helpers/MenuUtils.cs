@@ -16,7 +16,7 @@ namespace Neckington.Helpers
             Console.WriteLine("1. Storage Contacts");
             Console.WriteLine("2. Calculate Leap-Year ");
             Console.WriteLine("3. PromCalculaor ");
-            Console.WriteLine("4. Number Ordanizer");
+            Console.WriteLine("4. Number Organizer");
             Console.WriteLine("5. GenderGuesser");
             string selection = Console.ReadLine() ?? "0";
             int NumberSelection = int.Parse(selection);

@@ -34,7 +34,8 @@ namespace Neckington.Helpers
                 Age = Age,
                 Number = Number
             };
-                  Console.WriteLine("Contacto Guardado");
+            Console.Clear();      
+            Console.WriteLine("Contacto Guardado!");
         }
        
         
