@@ -23,19 +23,22 @@ namespace Neckington.Helpers
 
             return arrayOrganizer;
         }
-
-
+        
         public static void NumOrganizerServiceMethod(int [] ParamArrayOrganizer)
-
         {   
-                
             for (int i = 0; i < ParamArrayOrganizer.Length ; i++)
             {
+                try
+                {
                     Console.Write($"Introduce the element{i}: ");
                     ParamArrayOrganizer[i] = int.Parse(Console.ReadLine() ?? "0");
+                }
+                catch(Exception ex) {
+                    Console.WriteLine("Exception catched" + ex.Message );
+                }
             }
-                Array.Sort(ParamArrayOrganizer);
-                Console.WriteLine(string.Join(", ", ParamArrayOrganizer));
+               Array.Sort(ParamArrayOrganizer);
+               Console.WriteLine("Your numbers: " + string.Join(", ", ParamArrayOrganizer));
 
              
         }

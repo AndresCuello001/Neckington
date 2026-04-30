@@ -1,4 +1,5 @@
-﻿using Neckington.Models;
+﻿using Neckington.Interfaces;
+using Neckington.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,42 +10,48 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Neckington.Helpers
 {
-    public class ContactStorageUtils
+    public class ContactStorageUtils : IContactService
     {
-        public static void ContactDialog()
+        public ContactItem ContactDialog()
+        {
+            var contact = new ContactItem();
+
+            Console.Clear();
+            Console.WriteLine("Introduce the firstname:");
+            contact.FirstName = Console.ReadLine() ?? "0";
+
+            Console.WriteLine("Introduce the lastname:");
+            contact.LastName = Console.ReadLine() ?? "0";
+
+            Console.WriteLine("Introduce the age");
+            contact.Age = int.Parse(Console.ReadLine() ?? "0");
+
+            Console.WriteLine("Introduce number:");
+            contact.Number = long.Parse(Console.ReadLine() ?? "0");
+
+            return contact;
+        }
+
+        public void ContactStorageMethod(ContactItem contact)
         {
             Console.Clear();
-            Console.WriteLine("You have select adding contact");
-            Console.WriteLine("Write the contact name:");
-            string Name = Console.ReadLine() ?? "0";
-            Console.WriteLine("Write the contact LastName: ");
-            string LastName = Console.ReadLine() ?? "0";
-            Console.WriteLine("Write the contact Age: ");
-            string Ageparse = Console.ReadLine() ?? "0";
-            int Age = int.Parse(Ageparse);
-            Console.WriteLine("Write the contact Number: ");
-            string entrada4 = Console.ReadLine() ?? "0";
-
-            long Number = long.Parse(entrada4);
-
-            var newContact = new ContactItem()
-            {
-                FirstName = Name,
-                LastName = LastName,
-                Age = Age,
-                Number = Number
-            };
-            Console.Clear();      
-            Console.WriteLine("Contacto Guardado!");
-        }
-       
+            Console.WriteLine("\nContacto Guardado!");
+            Console.WriteLine("\nFirstName: " + contact.FirstName);
+            Console.WriteLine("\nLastName: " + contact.LastName);
+            Console.WriteLine("\nAge: " + contact.Age);
+            Console.WriteLine("\nNumber: " + contact.Number);
         
+        }
+
         
     }
-
-        
-        
-    
 }
+
+
+
+
+
+
+
 
 
