@@ -19,7 +19,7 @@ namespace Neckington.Helpers
             return year;
         }
 
-        public static void LeapYearResult(int year) {
+        public static void GetLeapYearResult(int year) {
             
             bool isLeap = DateTime.IsLeapYear(year);
             Console.WriteLine($"{year} is a leap year? {isLeap}");

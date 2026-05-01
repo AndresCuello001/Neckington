@@ -24,7 +24,7 @@ namespace Neckington.Helpers
         
         }
 
-        public static void AverageCalculateMethod(int[] arrayNumbers){  
+        public static void GetAverageCalculation(int[] arrayNumbers){  
             
             int sum = 0;
             try

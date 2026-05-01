@@ -12,9 +12,9 @@ namespace Neckington.Helpers
 {
     public class ContactStorageUtils : IContactService
     {
-        public ContactItem ContactDialog()
+        public Contact GetContactInformation()
         {
-            var contact = new ContactItem();
+            var contact = new Contact();
 
             Console.Clear();
             Console.WriteLine("Introduce the firstname:");
@@ -29,13 +29,31 @@ namespace Neckington.Helpers
             Console.WriteLine("Introduce number:");
             contact.Number = long.Parse(Console.ReadLine() ?? "0");
 
+             
             return contact;
+        
+        
         }
 
-        public void ContactStorageMethod(ContactItem contact)
+        /*public void SavedContact(bool isContactSaved) {
+
+            if (!isContactSaved == true)
+            {
+                Console.WriteLine("Contact saved! "); ;
+            }
+            else
+            {
+                Console.WriteLine("Contact isn't saved..."); ;
+            }
+        }*/
+        
+        
+        
+    
+        public void GetContactStorageResult(Contact contact)
         {
             Console.Clear();
-            Console.WriteLine("\nContacto Guardado!");
+            Console.WriteLine("\nContact: ");
             Console.WriteLine("\nFirstName: " + contact.FirstName);
             Console.WriteLine("\nLastName: " + contact.LastName);
             Console.WriteLine("\nAge: " + contact.Age);

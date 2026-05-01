@@ -9,7 +9,7 @@ namespace Neckington.Helpers
 {
     public class GenderGuesserUtils
     {
-        public static int GenderGuesserDialogMethod()
+        public static int GenderGuesserDialog()
         {
             Console.Clear();
             Console.WriteLine("You have selected the Gender guesser");
@@ -24,7 +24,7 @@ namespace Neckington.Helpers
             // I return value when i want to storage in a value
         }
 
-        public static void  GenderGuesserMethod(int value)
+        public static void  GetGenderGuesserResult(int value)
         {  
             if (value <= 10)
             {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Neckington.Models
 {
-    public class ContactItem
+    public class Contact
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName {get; set;} = string.Empty;

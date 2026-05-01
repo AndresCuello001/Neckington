@@ -31,57 +31,60 @@ namespace Neckington.Helpers
             switch (NumberSelection)
             {
                 case 1:
-                    Case1Method();
-                    break;
+                    InitializeContactStorage();
+                break;
                 case 2:
-                    Case2Method();
-                    break;
+                    InitializeLeapYear();
+                 break;
                 case 3:
-                    Case3Method();
+                    InitializeAverageCalculator();
                     break;
                 case 4:
-                    Case4Method();
+                    InitializeNumberOrganizer();
                     break;
                 case 5:
-                    Case5Method();
+                    InitiliazeGenderGuessser();
                     break;
 
                 default:
                     throw new ArgumentException("The selection Number Doesn't exist");
             }
         }
-        public static void Case1Method()
+        public static void InitializeContactStorage()
         {
             ContactStorageUtils contactStorage = new ContactStorageUtils();
-            var contactResult = contactStorage.ContactDialog();
-            contactStorage.ContactStorageMethod(contactResult);
+           var dialogResult = contactStorage.GetContactInformation();
+          
+            //bool isContactSaved = contactStorage.SavedContact();  
+            
+            contactStorage.GetContactStorageResult(dialogResult);
 
         }
-        public static void Case2Method()
+        public static void InitializeLeapYear()
         {
-            int leapYearResult = LeapYearUtils.LeapYearDialog();
-            LeapYearUtils.LeapYearResult(leapYearResult);                        
+            int dialogResult = LeapYearUtils.LeapYearDialog();
+            LeapYearUtils.GetLeapYearResult(dialogResult);                        
         }
 
-        public static void Case3Method()
+        public static void InitializeAverageCalculator()
         {
 
-            int[] resultAverageDialog = AverageCalculatorUtils.AverageDialog();
-            AverageCalculatorUtils.AverageCalculateMethod(resultAverageDialog);
+            int[] dialogAverageResult = AverageCalculatorUtils.AverageDialog();
+            AverageCalculatorUtils.GetAverageCalculation(dialogAverageResult);
 
         }
 
-        public static void Case4Method()
+        public static void InitializeNumberOrganizer()
         {
 
-            int[] resultArrayDialog = NumOrganizerUtils.NumOrganizerMethod();
-            NumOrganizerUtils.NumOrganizerServiceMethod(resultArrayDialog);
+            int[] dialogArrayResult= NumOrganizerUtils.NumOrganizerMethod();
+            NumOrganizerUtils.GetNumberOrganize(dialogArrayResult);
 
         }
-        public static void Case5Method()
+        public static void InitiliazeGenderGuessser()
         {
-            int resultGenderGuesserDialog = GenderGuesserUtils.GenderGuesserDialogMethod();
-            GenderGuesserUtils.GenderGuesserMethod(resultGenderGuesserDialog);
+            int dialogGenderGuesserResult= GenderGuesserUtils.GenderGuesserDialog();
+            GenderGuesserUtils.GetGenderGuesserResult(dialogGenderGuesserResult);
 
         }
     }
