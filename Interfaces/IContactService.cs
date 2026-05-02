@@ -9,6 +9,7 @@ namespace Neckington.Interfaces
 {
     interface IContactService
     {
-        Contact GetContactInformation();
+         Contact GetContact();
+ 
     }
 }

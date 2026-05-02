@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using Neckington.Models;
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Neckington.Models;
 
 
 namespace Neckington.Helpers
@@ -35,33 +37,25 @@ namespace Neckington.Helpers
                 break;
                 case 2:
                     InitializeLeapYear();
-                 break;
+                break;
                 case 3:
                     InitializeAverageCalculator();
-                    break;
+                break;
                 case 4:
                     InitializeNumberOrganizer();
-                    break;
+                break;
                 case 5:
                     InitiliazeGenderGuessser();
-                    break;
+                break;
 
                 default:
-                    throw new ArgumentException("The selection Number Doesn't exist");
+                    throw new ArgumentException("The selection number doesn't exist");
             }
         }
-        public static void InitializeContactStorage()
-        {
-            ContactStorageUtils contactStorage = new ContactStorageUtils();
-           var dialogResult = contactStorage.GetContactInformation();
-          
-            //bool isContactSaved = contactStorage.SavedContact();  
-            
-            contactStorage.GetContactStorageResult(dialogResult);
-
-        }
+       
         public static void InitializeLeapYear()
         {
+            
             int dialogResult = LeapYearUtils.LeapYearDialog();
             LeapYearUtils.GetLeapYearResult(dialogResult);                        
         }
@@ -87,6 +81,52 @@ namespace Neckington.Helpers
             GenderGuesserUtils.GetGenderGuesserResult(dialogGenderGuesserResult);
 
         }
+
+
+        public static void InitializeContactStorage()
+        {
+            
+            Console.Clear();
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("\n1. Register a contact");
+            Console.WriteLine("\n2. Show contact");
+            Console.WriteLine("\n3. Eliminate a contact");
+            Console.WriteLine("--------------------");
+            int option = int.Parse(Console.ReadLine());
+
+            // bool ejecutando = true;
+            
+                //while(ejecutando)  
+            
+                switch (option)
+                {
+
+                    case 1:
+                    Contact contact = new Contact();
+                    Contact contactResult = contact.GetContact();
+                        
+                    break;
+                           
+                    case 2:
+                    ContactStorageUtils.ShowContact();
+                    break;
+
+                    case 3:
+                    ContactStorageUtils.DeleteContact();
+                    break;
+                }
+               
+            }
+
+        
+          
+            
+        
+        
+        
     }
+    
+    
 }
+
 

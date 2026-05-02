@@ -1,7 +1,9 @@
-﻿using Neckington.Interfaces;
+﻿using Microsoft.VisualBasic.FileIO;
+using Neckington.Interfaces;
 using Neckington.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -10,61 +12,56 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Neckington.Helpers
 {
-    public class ContactStorageUtils : IContactService
+    public class ContactStorageUtils()
     {
-        public Contact GetContactInformation()
+
+        public static void Savecontact(Contact contact)
         {
-            var contact = new Contact();
-
             Console.Clear();
-            Console.WriteLine("Introduce the firstname:");
-            contact.FirstName = Console.ReadLine() ?? "0";
-
-            Console.WriteLine("Introduce the lastname:");
-            contact.LastName = Console.ReadLine() ?? "0";
-
-            Console.WriteLine("Introduce the age");
-            contact.Age = int.Parse(Console.ReadLine() ?? "0");
-
-            Console.WriteLine("Introduce number:");
-            contact.Number = long.Parse(Console.ReadLine() ?? "0");
-
-             
-            return contact;
-        
+            TextWriter archiveFile =new StreamWriter("C:\\Users\\Andre\\OneDrive\\Escritorio\\RutaArchivoC#\\Contact.txt");
+            string contactFile = $"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}";
+            archiveFile.WriteLine(contactFile);
+            archiveFile.Close();
         
         }
 
-        /*public void SavedContact(bool isContactSaved) {
+        public static void ShowContact()
+        {
+            Console.Clear();
+            string archivePath = "C:\\Users\\Andre\\OneDrive\\Escritorio\\RutaArchivo\\Contact.txt";
 
-            if (!isContactSaved == true)
+            if (!File.Exists(archivePath))
             {
-                Console.WriteLine("Contact saved! "); ;
+                using (StreamReader contactReader = new StreamReader(archivePath))
+                {
+                    string contactFile = contactReader.ReadToEnd();
+                    Console.WriteLine(contactFile);
+                }
             }
             else
             {
-                Console.WriteLine("Contact isn't saved..."); ;
+                Console.WriteLine("Contact not saved!");
             }
-        }*/
-        
-        
-        
-    
-        public void GetContactStorageResult(Contact contact)
-        {
-            Console.Clear();
-            Console.WriteLine("\nContact: ");
-            Console.WriteLine("\nFirstName: " + contact.FirstName);
-            Console.WriteLine("\nLastName: " + contact.LastName);
-            Console.WriteLine("\nAge: " + contact.Age);
-            Console.WriteLine("\nNumber: " + contact.Number);
-        
         }
 
-        
-    }
-}
+        public static void DeleteContact()
+        {
 
+            string archivePath = @"C:\\Users\\Andre\\OneDrive\\Escritorio\\Contact.txt";
+
+            if (File.Exists(archivePath))
+                {
+                File.Delete(archivePath);
+                Console.WriteLine("Archive deleted!");
+            }
+            else
+            {
+
+                Console.WriteLine("Archive can't be deleted");
+            }
+        }
+    }
+    }
 
 
 
