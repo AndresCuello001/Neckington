@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,75 +17,60 @@ namespace Neckington.Helpers
     {
 
 
-        public static void Savecontact(Contact contact)
+        public static void SaveContact(Contact contact)
         {
-
             try
             {
-                string path = @"C:\ArchivoC#\Contact.txt";
-                if (!File.Exists(path))
-                {
-                    File.Create(path);
-                    TextWriter tw = new StreamWriter(path);
-                    tw.WriteLine(@$"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}");
-                    tw.Close();
-                }
-
-                else if (File.Exists(path))
-                {
-                    using (var sw = new StreamWriter(path, true))
-
-                        sw.WriteLine($"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}");
-                
-                    
-                }
+                ProcessContactUtils.FileCreation(contact);
             }
             catch (Exception ex)
-            {   
+            {
                 Console.WriteLine("Error: " + ex.Message);
-            
+
             }
         }
-             
-          public static void ShowContact()
-          {
-            Console.Clear();
-            string path = @"C:\ArchivoC#\Contact.txt";
+           
+        public static void ShowContactOnScreen()
+        {
+            try
+            {
+            ProcessContactUtils.GetContact();
+            }
+            catch (Exception) 
+            {
+                Console.WriteLine("Contact can't be display");
+            }
 
-            if (File.Exists(path))
+        }
+        public static void DeleteContactMessage()
+        {
+            try
+            {
+                ProcessContactUtils.DeleteContact();
+            }
+            catch (Exception ex) 
             {
 
-                string contents = File.ReadAllText(@"C:\ArchivoC#\Contact.txt");
-                Console.WriteLine(contents);
+                Console.WriteLine("Contact can't be deleted" + ex.Message);
+            }
+           
+        }
+
+        public static void ContactExist() {
+
+            Console.Clear();
+            if (File.Exists(Constants.CreatePath))
+            {
+                Console.WriteLine("Contact exist!"); ;
 
             }
-            else {
+           else 
+           {
+                Console.WriteLine("Contact doesn't exist"); 
+           }
+                
 
-                Console.WriteLine("Contact can't be read");
-            
-            }
-
-
-
-          }
-                public static void DeleteContact()
-                {
-
-                     string archivePath = @"C:\ArchivoC#\Contact.txt";
-
-                    if (File.Exists(archivePath))
-                    {
-                        File.Delete(archivePath);
-                        Console.WriteLine("Contact deleted!");
-                    }
-                    else
-                    {
-
-                        Console.WriteLine("Contact can't be deleted");
-                    }
-                }
-     
-        //private bool ejecutando = true;
+        }
     
     }
 }

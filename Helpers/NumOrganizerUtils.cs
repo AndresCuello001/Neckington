@@ -36,7 +36,7 @@ namespace Neckington.Helpers
             return arrayOrganizer;
         }
         
-        public static void GetNumberOrganize(int [] ParamArrayOrganizer)
+        public static void GetNumbersOrganize(int [] ParamArrayOrganizer)
         {   
             for (int i = 0; i < ParamArrayOrganizer.Length ; i++)
             {

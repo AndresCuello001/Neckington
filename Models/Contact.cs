@@ -9,7 +9,7 @@ namespace Neckington.Models
 {
     public class Contact
     {
-        public Contact GetContact()
+        public Contact ContactCreation()
         {
             Contact contact =new Contact();
 

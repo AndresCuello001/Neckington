@@ -75,7 +75,7 @@ namespace Neckington.Helpers
         {
 
             int[] dialogArrayResult= NumOrganizerUtils.NumOrganizerMethod();
-            NumOrganizerUtils.GetNumberOrganize(dialogArrayResult);
+            NumOrganizerUtils.GetNumbersOrganize(dialogArrayResult);
 
         }
         public static void InitiliazeGenderGuessser()
@@ -97,7 +97,8 @@ namespace Neckington.Helpers
                 Console.WriteLine("-----------------------");
                 Console.WriteLine("\n1. Register a contact");
                 Console.WriteLine("\n2. Show contact");
-                Console.WriteLine("\n3. Eliminate a contact");
+                Console.WriteLine("\n3. Does contact exist?");
+                 Console.WriteLine("\n4. Eliminate a contact");
                 Console.WriteLine("--------------------");
                 int option = int.Parse(Console.ReadLine());
 
@@ -107,18 +108,21 @@ namespace Neckington.Helpers
 
                     case 1:
                         Contact contact = new Contact();
-                        Contact contactResult = contact.GetContact();
-                        ContactStorageUtils.Savecontact(contactResult);
+                        Contact contactResult = contact.ContactCreation();
+                        ContactStorageUtils.SaveContact(contactResult);
                         break;
 
                     case 2:
-                        ContactStorageUtils.ShowContact();
+                        ContactStorageUtils.ShowContactOnScreen();
                     break;
 
                     case 3:
-                        ContactStorageUtils.DeleteContact();
-                        break;
+                        ContactStorageUtils.ContactExist();
+                    break;
 
+                    case 4:
+                        ContactStorageUtils.DeleteContactMessage();
+                        break;
                     default:
                         throw new ArgumentException("Option doesn't exits");
                    

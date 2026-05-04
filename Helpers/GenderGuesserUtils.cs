@@ -9,15 +9,12 @@ namespace Neckington.Helpers
 {
     public class GenderGuesserUtils
     {
-
         public static void InitiliazeGenderGuessser()
         {
             int dialogGenderGuesserResult = GenderGuesserUtils.GenderGuesserDialog();
             GenderGuesserUtils.GetGenderGuesserResult(dialogGenderGuesserResult);
 
         }
-
-
 
         public static int GenderGuesserDialog()
         {
@@ -33,6 +30,7 @@ namespace Neckington.Helpers
             return enterValue;
             // I return value when i want to storage in a value
         }
+
 
         public static void  GetGenderGuesserResult(int value)
         {  
