@@ -8,6 +8,7 @@ namespace Neckington.Helpers
 {
     public class LeapYearUtils
     {
+
         public static int LeapYearDialog()
         {
             Console.Clear();
@@ -25,9 +26,15 @@ namespace Neckington.Helpers
             Console.WriteLine($"{year} is a leap year? {isLeap}");
 
         }
-    
-    
-    
+
+        public static void InitializeLeapYear()
+        {
+
+            int dialogResult = LeapYearUtils.LeapYearDialog();
+            LeapYearUtils.GetLeapYearResult(dialogResult);
+        }
+
+
     }
 }
 

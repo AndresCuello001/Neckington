@@ -15,53 +15,79 @@ namespace Neckington.Helpers
     public class ContactStorageUtils()
     {
 
+
         public static void Savecontact(Contact contact)
         {
-            Console.Clear();
-            TextWriter archiveFile =new StreamWriter("C:\\Users\\Andre\\OneDrive\\Escritorio\\RutaArchivoC#\\Contact.txt");
-            string contactFile = $"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}";
-            archiveFile.WriteLine(contactFile);
-            archiveFile.Close();
-        
-        }
 
-        public static void ShowContact()
-        {
-            Console.Clear();
-            string archivePath = "C:\\Users\\Andre\\OneDrive\\Escritorio\\RutaArchivo\\Contact.txt";
-
-            if (!File.Exists(archivePath))
+            try
             {
-                using (StreamReader contactReader = new StreamReader(archivePath))
+                string path = @"C:\ArchivoC#\Contact.txt";
+                if (!File.Exists(path))
                 {
-                    string contactFile = contactReader.ReadToEnd();
-                    Console.WriteLine(contactFile);
+                    File.Create(path);
+                    TextWriter tw = new StreamWriter(path);
+                    tw.WriteLine(@$"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}");
+                    tw.Close();
+                }
+
+                else if (File.Exists(path))
+                {
+                    using (var sw = new StreamWriter(path, true))
+
+                        sw.WriteLine($"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.Number}");
+                
+                    
                 }
             }
-            else
-            {
-                Console.WriteLine("Contact not saved!");
+            catch (Exception ex)
+            {   
+                Console.WriteLine("Error: " + ex.Message);
+            
             }
         }
+             
+          public static void ShowContact()
+          {
+            Console.Clear();
+            string path = @"C:\ArchivoC#\Contact.txt";
 
-        public static void DeleteContact()
-        {
+            if (File.Exists(path))
+            {
 
-            string archivePath = @"C:\\Users\\Andre\\OneDrive\\Escritorio\\Contact.txt";
+                string contents = File.ReadAllText(@"C:\ArchivoC#\Contact.txt");
+                Console.WriteLine(contents);
 
-            if (File.Exists(archivePath))
+            }
+            else {
+
+                Console.WriteLine("Contact can't be read");
+            
+            }
+
+
+
+          }
+                public static void DeleteContact()
                 {
-                File.Delete(archivePath);
-                Console.WriteLine("Archive deleted!");
-            }
-            else
-            {
 
-                Console.WriteLine("Archive can't be deleted");
-            }
-        }
+                     string archivePath = @"C:\ArchivoC#\Contact.txt";
+
+                    if (File.Exists(archivePath))
+                    {
+                        File.Delete(archivePath);
+                        Console.WriteLine("Contact deleted!");
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("Contact can't be deleted");
+                    }
+                }
+     
+        //private bool ejecutando = true;
+    
     }
-    }
+}
 
 
 

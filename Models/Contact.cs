@@ -22,7 +22,7 @@ namespace Neckington.Models
             contact.LastName = Console.ReadLine() ?? "";
 
             Console.WriteLine("Introduce the age:");
-            contact.Age = int.Parse(Console.ReadLine() ?? "0");
+            contact.Age = int.Parse(Console.ReadLine() ?? "0"); 
 
             Console.WriteLine("Introduce number:");
             contact.Number = long.Parse(Console.ReadLine() ?? "0");

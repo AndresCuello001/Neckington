@@ -8,7 +8,14 @@ namespace Neckington.Helpers
  {
    public class AverageCalculatorUtils
     {
-      
+
+        public static void InitializeAverageCalculator()
+        {
+
+            int[] dialogAverageResult = AverageCalculatorUtils.AverageDialog();
+            AverageCalculatorUtils.GetAverageCalculation(dialogAverageResult);
+
+        }
 
         public static int[] AverageDialog() {
 
@@ -48,7 +55,7 @@ namespace Neckington.Helpers
 
         }
 
-
-        private int[] bunchOfNumbers;
+       
+        //private int[] bunchOfNumbers;
     }
 }

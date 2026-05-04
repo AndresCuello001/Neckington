@@ -11,6 +11,18 @@ namespace Neckington.Helpers
 {
     public class NumOrganizerUtils
     {
+
+        public static void InitializeNumberOrganizer()
+        {
+
+            int[] dialogArrayResult = NumOrganizerUtils.NumOrganizerMethod();
+            NumOrganizerUtils.GetNumberOrganize(dialogArrayResult);
+
+        }
+
+
+
+
         public static int[] NumOrganizerMethod()
         {
             Console.Clear();

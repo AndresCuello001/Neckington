@@ -15,6 +15,7 @@ namespace Neckington.Helpers
         public static int MenuDialog() {
 
             Console.Clear();
+            Console.WriteLine("--------------------------------------");
             Console.WriteLine("Welcome to Neckington");
             Console.WriteLine("What options are you looking for?");
             Console.WriteLine("1. Storage Contacts");
@@ -22,6 +23,8 @@ namespace Neckington.Helpers
             Console.WriteLine("3. PromCalculaor ");
             Console.WriteLine("4. Number Organizer");
             Console.WriteLine("5. GenderGuesser");
+    
+            Console.WriteLine("--------------------------------------");
             string selection = Console.ReadLine() ?? "0";
             int NumberSelection = int.Parse(selection);
             
@@ -85,48 +88,59 @@ namespace Neckington.Helpers
 
         public static void InitializeContactStorage()
         {
+            bool ejecutando = true;
             
-            Console.Clear();
-            Console.WriteLine("-----------------------");
-            Console.WriteLine("\n1. Register a contact");
-            Console.WriteLine("\n2. Show contact");
-            Console.WriteLine("\n3. Eliminate a contact");
-            Console.WriteLine("--------------------");
-            int option = int.Parse(Console.ReadLine());
+            while (ejecutando) 
+            {
+                
+                 Console.Clear();
+                Console.WriteLine("-----------------------");
+                Console.WriteLine("\n1. Register a contact");
+                Console.WriteLine("\n2. Show contact");
+                Console.WriteLine("\n3. Eliminate a contact");
+                Console.WriteLine("--------------------");
+                int option = int.Parse(Console.ReadLine());
 
-            // bool ejecutando = true;
-            
-                //while(ejecutando)  
-            
-                switch (option)
-                {
+
+                    switch (option)
+                    {
 
                     case 1:
-                    Contact contact = new Contact();
-                    Contact contactResult = contact.GetContact();
-                        
-                    break;
-                           
+                        Contact contact = new Contact();
+                        Contact contactResult = contact.GetContact();
+                        ContactStorageUtils.Savecontact(contactResult);
+                        break;
+
                     case 2:
-                    ContactStorageUtils.ShowContact();
+                        ContactStorageUtils.ShowContact();
                     break;
 
                     case 3:
-                    ContactStorageUtils.DeleteContact();
-                    break;
-                }
-               
+                        ContactStorageUtils.DeleteContact();
+                        break;
+
+                    default:
+                        throw new ArgumentException("Option doesn't exits");
+                   
+       
+                    }
+            if (ejecutando)
+            {
+                    Console.WriteLine("\nPresiona una tecla para continuar");
+                    Console.ReadKey();
+            }
             }
 
-        
-          
+        }
+
+    }
             
         
         
         
-    }
-    
-    
 }
+    
+    
+
 
 

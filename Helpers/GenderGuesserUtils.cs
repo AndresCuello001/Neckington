@@ -9,6 +9,16 @@ namespace Neckington.Helpers
 {
     public class GenderGuesserUtils
     {
+
+        public static void InitiliazeGenderGuessser()
+        {
+            int dialogGenderGuesserResult = GenderGuesserUtils.GenderGuesserDialog();
+            GenderGuesserUtils.GetGenderGuesserResult(dialogGenderGuesserResult);
+
+        }
+
+
+
         public static int GenderGuesserDialog()
         {
             Console.Clear();
