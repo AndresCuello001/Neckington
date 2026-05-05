@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +15,7 @@ namespace Neckington.Helpers
         {
 
             int[] dialogAverageResult = AverageCalculatorUtils.AverageDialog();
-            AverageCalculatorUtils.GetAverageCalculation(dialogAverageResult);
+            AverageCalculatorUtils.ArrayCalculation(dialogAverageResult);
 
         }
 
@@ -31,30 +33,36 @@ namespace Neckington.Helpers
         
         }
 
-        public static void GetAverageCalculation(int[] arrayNumbers){  
+        public static void GetAverage(int[] arrayNumbers){  
             
-            int sum = 0;
             try
             {
-                for (int i = 0; i < arrayNumbers.Length; i++)
-                {
-                    Console.Write($"Introduce the element{i}: ");
-                    arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
-                    sum += arrayNumbers[i];
-                }
-                
-                double average = (double)sum / arrayNumbers.Length;
-                Console.WriteLine("This is the average of your elements: " + average);
+                ArrayCalculation(arrayNumbers);
             }
             catch (IndexOutOfRangeException e)
             { 
 
                 Console.WriteLine("Error" + e.Message);
             }
-            
+           
+        
+        }
+        
+        public static void ArrayCalculation(int [] arrayNumbers)
+        {
+            int sum = 0;
+           
+            for (int i = 0; i < arrayNumbers.Length; i++)
+            {
+                Console.Write($"Introduce the element{i}: ");
+                arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
+                sum += arrayNumbers[i];
+            }
+
+            double average = (double)sum / arrayNumbers.Length;
+            Console.WriteLine("This is the average of your elements: " + average);
 
         }
-
        
         //private int[] bunchOfNumbers;
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using Neckington.Configuration;
 using Neckington.Interfaces;
 using Neckington.Models;
 using System;
@@ -16,6 +17,58 @@ namespace Neckington.Helpers
     public class ContactStorageUtils()
     {
 
+        public static void InitializeContactStorage()
+        {
+            bool ejecutando = true;
+
+
+            try
+            {
+                while (ejecutando)
+                {
+
+                    Console.Clear();
+                    Console.WriteLine("-----------------------");
+                    Console.WriteLine("\n1. Register a contact");
+                    Console.WriteLine("\n2. Show contact");
+                    Console.WriteLine("\n3. Does contact exist?");
+                    Console.WriteLine("\n4. Eliminate a contact");
+                    Console.WriteLine("--------------------");
+
+                    int option = int.Parse(Console.ReadLine());
+
+                    switch (option)
+                    {
+                        case 1:
+                            Contact contact = new Contact();
+                            Contact contactResult = contact.ContactCreation();
+                            ContactStorageUtils.SaveContact(contactResult);
+                            break;
+                        case 2:
+                            ContactStorageUtils.ShowContactOnScreen();
+                            break;
+                        case 3:
+                            ContactStorageUtils.ContactExist();
+                            break;
+                        case 4:
+                            ContactStorageUtils.DeleteContactMessage();
+                            break;
+                        default:
+                            throw new ArgumentException("Option doesn't exits");
+                    }
+                    if (ejecutando)
+                    {
+                        Console.WriteLine("\nPresiona una tecla para continuar");
+                        Console.ReadKey();
+                    }
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error" + ex.Message);
+            }
+        
+        
+        }
 
         public static void SaveContact(Contact contact)
         {
@@ -34,7 +87,7 @@ namespace Neckington.Helpers
         {
             try
             {
-            ProcessContactUtils.GetContact();
+                 ProcessContactUtils.GetContact();
             }
             catch (Exception) 
             {
@@ -59,10 +112,9 @@ namespace Neckington.Helpers
         public static void ContactExist() {
 
             Console.Clear();
-            if (File.Exists(Constants.CreatePath))
+            if (File.Exists(Constants.ArchivePath))
             {
-                Console.WriteLine("Contact exist!"); ;
-
+                Console.WriteLine("Contact exist!");
             }
            else 
            {

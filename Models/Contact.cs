@@ -25,17 +25,19 @@ namespace Neckington.Models
             contact.Age = int.Parse(Console.ReadLine() ?? "0"); 
 
             Console.WriteLine("Introduce number:");
-            contact.Number = long.Parse(Console.ReadLine() ?? "0");
+            contact.PhoneNumber = long.Parse(Console.ReadLine() ?? "0");
+
+            Console.WriteLine("Introduce the Address:");
+            contact.Address = (Console.ReadLine() ?? "0");
 
             return contact;
         }
-
-       
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName {get; set;} = string.Empty;
-        public int Age {get; set;} 
-        public long Number { get; set;}
+      
+      public string FirstName { get; set; } = string.Empty;
+      public string LastName {get; set;} = string.Empty;
+      public int Age {get; set;} 
+      public long PhoneNumber{ get; set;}
+      public string Address { get; set; } = string.Empty;
    
-    
     }
 }

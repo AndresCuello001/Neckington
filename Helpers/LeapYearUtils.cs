@@ -9,6 +9,14 @@ namespace Neckington.Helpers
     public class LeapYearUtils
     {
 
+        public static void InitializeLeapYear()
+        {
+
+            int dialogResult = LeapYearUtils.LeapYearDialog();
+            LeapYearUtils.GetLeapYearResult(dialogResult);
+        }
+
+
         public static int LeapYearDialog()
         {
             Console.Clear();
@@ -27,13 +35,7 @@ namespace Neckington.Helpers
 
         }
 
-        public static void InitializeLeapYear()
-        {
-
-            int dialogResult = LeapYearUtils.LeapYearDialog();
-            LeapYearUtils.GetLeapYearResult(dialogResult);
-        }
-
+      
 
     }
 }

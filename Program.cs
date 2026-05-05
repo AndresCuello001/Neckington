@@ -23,7 +23,7 @@ namespace Neckington
             
             }
 
-            Console.WriteLine("Program continue to be here!");
+            Console.WriteLine("Program continue here!");
          }
     }
 }
