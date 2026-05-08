@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,33 +15,37 @@ namespace Neckington.Helpers
         public static void FileCreation(Contact contact) 
         {
             Console.Clear();
-            using (var sw = new StreamWriter(Constants.ArchivePath, true))
-            sw.WriteLine($"Contact: FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.PhoneNumber} Address: {contact.Address}");
-
+            using (var sw = new StreamWriter(Constants.ArchivePath, true)) 
+            {
+                sw.WriteLine($"Contact: {contact.Id} FirstName: {contact.FirstName} LastName: {contact.LastName} Age: {contact.Age} Number: {contact.PhoneNumber} WorkNumber: {contact.WorkNumber} Address: {contact.Address}");
+            }
+             ContactStorageUtils.SaveContact();
         }
 
-        public static void GetContact() {
-
+        
+        public static void ShowFile() 
+        {
            Console.Clear();
            string contents = File.ReadAllText(Constants.ArchivePath);
            Console.WriteLine(contents);
-
+    
         }
 
-        public static void DeleteContact() {
+        public static void DeleteFile() {
            
             Console.Clear();
             if (File.Exists(Constants.ArchivePath))
             
-                File.Delete(Constants.ArchivePath);
-                Console.WriteLine("Contact deleted!");
+            File.Delete(Constants.ArchivePath);
+            Console.WriteLine("Contact deleted!");
         }
 
-
-
+       
     }
-    
+
 }
+    
+
 
 
     

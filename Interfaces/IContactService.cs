@@ -9,7 +9,14 @@ namespace Neckington.Interfaces
 {
     interface IContactService
     {
-         Contact GetContact();
- 
+        void AddContact(Contact contact);
+
+        Contact FindByPhone(long phone);
+
+        List<Contact> GetAllContacts();
+
+        void LoadContacts();
     }
+
 }
+

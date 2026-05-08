@@ -13,13 +13,11 @@ namespace Neckington.Helpers
 
         public static void InitializeAverageCalculator()
         {
-
-            int[] dialogAverageResult = AverageCalculatorUtils.AverageDialog();
-            AverageCalculatorUtils.ArrayCalculation(dialogAverageResult);
-
+            int[] dialogAverageResult = ShowMessage();
+            GetAverage(dialogAverageResult);
         }
 
-        public static int[] AverageDialog() {
+        public static int[] ShowMessage() {
 
             Console.Clear();
             Console.WriteLine("You have select the PromCalculator: ");
@@ -29,26 +27,24 @@ namespace Neckington.Helpers
             int numberOfArrays = int.Parse(n);
 
             int[] arrayNumbers = new int[numberOfArrays];
+            
             return arrayNumbers;
         
         }
 
-        public static void GetAverage(int[] arrayNumbers){  
-            
+        public static void GetAverage(int[] arrayNumbers)
+        {      
             try
             {
-                ArrayCalculation(arrayNumbers);
+                GetCalculation(arrayNumbers);
             }
             catch (IndexOutOfRangeException e)
             { 
-
                 Console.WriteLine("Error" + e.Message);
             }
-           
-        
         }
         
-        public static void ArrayCalculation(int [] arrayNumbers)
+        public static void GetCalculation(int [] arrayNumbers)
         {
             int sum = 0;
            
@@ -58,12 +54,15 @@ namespace Neckington.Helpers
                 arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
                 sum += arrayNumbers[i];
             }
+                 ShowResult(sum, arrayNumbers);
+        }
 
+
+        public static void ShowResult(int sum, int[] arrayNumbers) 
+        {
             double average = (double)sum / arrayNumbers.Length;
             Console.WriteLine("This is the average of your elements: " + average);
-
-        }
-       
+        } 
         //private int[] bunchOfNumbers;
     }
 }

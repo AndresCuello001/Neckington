@@ -8,18 +8,26 @@ namespace Neckington.Helpers
 {
     public class ProcessNumOrganizerUtils
     {
-        public static void GetNumbers(int[] ParamArrayOrganizer, int i)
+        public static void GetNumbers(List<int> listOfNumbers, int numberOfList)
         {
+            int element = 0;
+            
+            for (int i = 0; i < numberOfList; i++)
+            {
 
-            Console.Write($"Introduce the element{i}: ");
-            ParamArrayOrganizer[i] = int.Parse(Console.ReadLine() ?? "0");
+                Console.WriteLine("Introduce the element: ");
+                element = Int32.Parse(Console.ReadLine());
+
+                listOfNumbers.Add(element);
+
+            }
+            ShowNumbers(listOfNumbers);
         }
-
-        public static void ShowNumbers(int[] ParamArrayOrganizer)
+       
+        public static void ShowNumbers(List<int> listOfNumbers)
         {
-
-            Array.Sort(ParamArrayOrganizer);
-            Console.WriteLine("Your numbers: " + string.Join(", ", ParamArrayOrganizer));
+            listOfNumbers.Sort();
+            Console.WriteLine("Your numbers: " + string.Join(", ", listOfNumbers));
         }
     }
 }

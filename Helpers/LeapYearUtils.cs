@@ -11,13 +11,11 @@ namespace Neckington.Helpers
 
         public static void InitializeLeapYear()
         {
-
-            int dialogResult = LeapYearUtils.LeapYearDialog();
-            LeapYearUtils.GetLeapYearResult(dialogResult);
+            int dialogResult = ShowMessage();
+            GetResult(dialogResult);
         }
 
-
-        public static int LeapYearDialog()
+        public static int ShowMessage()
         {
             Console.Clear();
             Console.WriteLine("Write the year you want to evaluate");
@@ -28,7 +26,7 @@ namespace Neckington.Helpers
             return year;
         }
 
-        public static void GetLeapYearResult(int year) {
+        public static void GetResult(int year) {
             
             bool isLeap = DateTime.IsLeapYear(year);
             Console.WriteLine($"{year} is a leap year? {isLeap}");

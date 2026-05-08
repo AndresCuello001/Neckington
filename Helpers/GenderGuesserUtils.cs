@@ -11,12 +11,12 @@ namespace Neckington.Helpers
     {
         public static void InitiliazeGenderGuessser()
         {
-            int dialogGenderGuesserResult = GenderGuesserUtils.GenderGuesserDialog();
-            GenderGuesserUtils.GetGenderGuesserResult(dialogGenderGuesserResult);
+            int dialogGenderGuesserResult = ShowMessage();
+            GetResult(dialogGenderGuesserResult);
 
         }
 
-        public static int GenderGuesserDialog()
+        public static int ShowMessage()
         {
             Console.Clear();
             Console.WriteLine("You have selected the Gender guesser");
@@ -32,9 +32,8 @@ namespace Neckington.Helpers
         }
 
 
-        public static void  GetGenderGuesserResult(int value)
-        {  
-            
+        public static void GetResult(int value)
+        { 
             if (value <= 10)
             {
                 Console.WriteLine(" You're a Men"); 
@@ -43,7 +42,6 @@ namespace Neckington.Helpers
             {
                 Console.WriteLine("You're a Women");
             }
-
 
         }
     }
