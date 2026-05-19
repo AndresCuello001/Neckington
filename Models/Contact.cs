@@ -1,4 +1,4 @@
-﻿using Neckington.Interfaces;
+﻿using Neckington
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,8 +16,6 @@ namespace Neckington.Models
             Contact contact = new Contact();
 
             Console.Clear();
-
-           
             
             Console.WriteLine("Introduce the first name:");
             contact.FirstName = Console.ReadLine() ?? "";
@@ -35,18 +33,23 @@ namespace Neckington.Models
             contact.WorkNumber = long.Parse(Console.ReadLine() ?? "0");
 
             Console.WriteLine("Introduce the Address:");
-            contact.Address = (Console.ReadLine() ?? "0");
+            contact.Address = Console.ReadLine() ?? "0";
 
             return contact;
         }
 
-        public string Id { get; set; }
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
+        public string? Id { get; set; }
+        
+        [Required]
+        public string? FirstName { get; set; }
+        [Required]
+        public string? LastName { get; set; } 
         public int Age { get; set; }
         public long PhoneNumber { get; set; }
+       
         public long WorkNumber { get; set; }
-        public string Address { get; set; } = string.Empty;
+       
+        public string? Address { get; set; } 
 
         // public static int counter = 1;
     }

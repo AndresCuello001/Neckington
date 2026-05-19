@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Helpers
+namespace Neckington.Utilities
 {
-    public class ProcessNumOrganizerUtils
+    public class NumOrganizerUtils
     {
         public static void GetNumbers(List<int> listOfNumbers, int numberOfList)
         {
@@ -16,7 +16,7 @@ namespace Neckington.Helpers
             {
 
                 Console.WriteLine("Introduce the element: ");
-                element = Int32.Parse(Console.ReadLine());
+                element = int.Parse(Console.ReadLine());
 
                 listOfNumbers.Add(element);
 

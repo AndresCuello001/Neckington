@@ -1,12 +1,15 @@
 ﻿using Microsoft.VisualBasic.FileIO;
-using Neckington.Models;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-
+using Neckington.Models;
+using Neckington.Core;
+using Neckington.Utilities;
+using Neckington.Core.Configuration;
 
 namespace Neckington.Helpers
 {
@@ -15,26 +18,15 @@ namespace Neckington.Helpers
         public static void ShowMenu() {
 
             Console.Clear();
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("Welcome to Neckington");
-            Console.WriteLine("What options are you looking for?");
-            Console.WriteLine("1. Storage Contacts");
-            Console.WriteLine("2. Calculate Leap-Year ");
-            Console.WriteLine("3. PromCalculaor ");
-            Console.WriteLine("4. Number Organizer");
-            Console.WriteLine("5. GenderGuesser");
-    
-            Console.WriteLine("--------------------------------------");
+            Console.WriteLine(Constants.Menu);
             string selection = Console.ReadLine() ?? "0";
             int NumberSelection = int.Parse(selection);
             
            OptionResult(NumberSelection);
        
         }
-       
         public static void OptionResult(int NumberSelection)
         {
-
             try
             {
                 switch (NumberSelection)
@@ -73,7 +65,6 @@ namespace Neckington.Helpers
             {
                 while (ejecutando)
                 {
-
                     Console.Clear();
                     Console.WriteLine("-----------------------");
                     Console.WriteLine("\n1. Register a contact");
@@ -85,7 +76,6 @@ namespace Neckington.Helpers
                     int option = int.Parse(Console.ReadLine());
 
                    GetOptionResult(option, ejecutando);
-
                 }
             }
             catch (Exception ex)
@@ -121,10 +111,9 @@ namespace Neckington.Helpers
                 Console.WriteLine("\nPresiona una tecla para continuar");
                 Console.ReadKey();
             }
-        
         }
-
-        public static void ShowProgramName() {
+        public static void ShowProgramName() 
+        {
            
             Console.WriteLine("<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>");
             Console.WriteLine("..........NECKINGTON...........");
@@ -132,8 +121,6 @@ namespace Neckington.Helpers
             Thread.Sleep(5000);
 
         }
-    
-    
     }
 }
             

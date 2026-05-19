@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neckington.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Globalization;
@@ -10,14 +11,14 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Neckington.Helpers
 {
-    public class NumOrganizerUtils
+    public class NumOrganizerHelper: MessagesUtils
     {
         public static void InitializeNumberOrganizer()
         {
             DisplayAndExtractData();
         }
 
-        public static void DisplayAndExtractData()
+        public override  DisplayAndExtractData()
         {
             Console.Clear();
             Console.WriteLine("Welcome to your ordanizer number.... you're limited to 4 numbers ");
@@ -35,19 +36,14 @@ namespace Neckington.Helpers
 
             try
             {
-                ProcessNumOrganizerUtils.GetNumbers(listOfNumbers, numberOfList);
+                NumOrganizerUtils.GetNumbers(listOfNumbers, numberOfList);
             }
-           
-            
-            
             catch (Exception ex)
             {
                 Console.WriteLine("Exception catched" + ex.Message);
             }
-
         }
-    }
-          
+    }    
 }
    
      

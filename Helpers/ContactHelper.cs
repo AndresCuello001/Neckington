@@ -1,8 +1,7 @@
 ﻿using Microsoft.VisualBasic.FileIO;
-using Neckington.Configuration;
-using Neckington.ContactServices;
-using Neckington.Interfaces;
+using Neckington.Core.Configuration;
 using Neckington.Models;
+using Neckington.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

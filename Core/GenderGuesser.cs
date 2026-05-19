@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Helpers
+namespace Neckington.Core
 {
     public class GenderGuesserUtils
     {
@@ -30,7 +30,6 @@ namespace Neckington.Helpers
             return enterValue;
             // I return value when i want to storage in a value
         }
-
 
         public static void GetResult(int value)
         { 

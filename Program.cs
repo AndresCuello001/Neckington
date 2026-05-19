@@ -1,5 +1,5 @@
-﻿using Neckington.Helpers;
-using Neckington.Interfaces;
+﻿using Neckington.Interfaces;
+using Neckington.src.Core.Helpers;
 using System.Collections;
 using System.ComponentModel.Design;
 
@@ -11,14 +11,12 @@ namespace Neckington
         {
             try
             {
-                MenuUtils.ShowProgramName();
-                MenuUtils.ShowMenu();
+                Menu.ShowProgramName();
+                Menu.ShowMenu();
             }
             catch (Exception ex) {
-
                 Console.WriteLine("Error: " + ex.Message);
             }
-           
         }
     }
 }

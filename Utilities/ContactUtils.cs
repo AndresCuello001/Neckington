@@ -1,4 +1,5 @@
-﻿using Neckington.Configuration;
+﻿using Neckington.Core.Configuration;
+using Neckington.Helpers;
 using Neckington.Models;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Helpers
+namespace Neckington.Utilities
 {
     public class ProcessContactUtils
     {
@@ -30,6 +31,7 @@ namespace Neckington.Helpers
            Console.WriteLine(contents);
     
         }
+
 
         public static void DeleteFile() {
            
