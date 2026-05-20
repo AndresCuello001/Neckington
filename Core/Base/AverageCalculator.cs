@@ -9,31 +9,28 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Core
- {
-   public class AverageCalculator: MessagesUtils
-    {
-
+namespace Neckington.Core.Base
+{
+   public class AverageCalculator: ProcessMessageUtils
+   {
         public static void InitializeAverageCalculator()
         {
-            int[] dialogAverageResult = DisplayAndExtractData();
-            GetAverage(dialogAverageResult);
+            AverageCalculator average = new AverageCalculator();
+            average.ProcessData();
         }
 
-        public override int[] DisplayAndExtractData() {
+        public override void ProcessData() {
 
             Console.WriteLine(Constants.AverageMenu);
             string n = Console.ReadLine() ?? "0";
-            
+           
             int numberOfArrays = int.Parse(n);
-
             int[] arrayNumbers = new int[numberOfArrays];
-     
-            return arrayNumbers;
-        
+
+            CalculateAverage(arrayNumbers);        
         }
 
-        public static void GetAverage(int[] arrayNumbers)
+        public static void CalculateAverage(int[] arrayNumbers)
         {      
             try
             {
@@ -43,7 +40,6 @@ namespace Neckington.Core
             { 
                 Console.WriteLine("Error" + e.Message);
             }
-        }
-        
-    }
+        }     
+   }
 }

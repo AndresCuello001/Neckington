@@ -27,5 +27,22 @@ namespace Neckington.Core.Configuration
         @"You have select the PromCalculator:            
         Write down How many numbers you wanna calculate";
 
+        public const string GenderGuesserMenu =
+        @"You have selected the Gender guesser
+        Next you have to answer these follow questions to guess your gender
+        If you're a men type whatever number between 1 and 10 ";
+
+        public const string InitializeContactStorageMenu =
+         @"
+         -----------------------
+         \n1. Register a contact
+         \n2. Show contact
+         \n3. Does contact exist?
+         \n4. Eliminate a contact
+         --------------------";
+
+
+
+
     }
 }

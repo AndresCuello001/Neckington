@@ -8,7 +8,6 @@ namespace Neckington.Utilities
 {
     public class LeapYearUtils
     {
-
         public static void InitializeLeapYear()
         {
             int dialogResult = ShowMessage();

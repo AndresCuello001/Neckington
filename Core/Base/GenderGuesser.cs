@@ -1,34 +1,29 @@
-﻿using System;
+﻿using Neckington.Core.Configuration;
+using Neckington.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Core
+namespace Neckington.Core.Base
 {
-    public class GenderGuesserUtils
-    {
+    public class GenderGuesserUtils: M
+    
         public static void InitiliazeGenderGuessser()
         {
-            int dialogGenderGuesserResult = ShowMessage();
-            GetResult(dialogGenderGuesserResult);
-
+            GenderGuesserUtils genderGuesserObject = new GenderGuesserUtils();
+            genderGuesserObject.ProcessData();
+            
         }
-
-        public static int ShowMessage()
+        public override void ProcessData()
         {
-            Console.Clear();
-            Console.WriteLine("You have selected the Gender guesser");
-            Console.WriteLine("Next you have to answer these follow questions to guess your gender");
-
-            Console.WriteLine("If you're a men type whatever number between 1 and 10 ");
+            Console.WriteLine(Constants.GenderGuesserMenu);
             string enter1 = Console.ReadLine() ?? "0";
-
             int enterValue = int.Parse(enter1); 
             
-            return enterValue;
-            // I return value when i want to storage in a value
+            GetResult(enterValue);
         }
 
         public static void GetResult(int value)
@@ -41,10 +36,6 @@ namespace Neckington.Core
             {
                 Console.WriteLine("You're a Women");
             }
-
         }
     }
-
-
-
 }

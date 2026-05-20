@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neckington.Core.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Neckington.Utilities
 {
-    public class AverageCalculatorUtils
+    public class AverageCalculatorUtils: ShowResultUtils
     {
         public static void GetCalculation(int[] arrayNumbers)
         {
@@ -18,10 +19,11 @@ namespace Neckington.Utilities
                 arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
                 sum += arrayNumbers[i];
             }
-            ShowResult(sum, arrayNumbers);
+            AverageCalculatorUtils averageCalculatorObject = new AverageCalculatorUtils();
+            averageCalculatorObject.ShowResult(sum, arrayNumbers);
         }
 
-        public static void ShowResult(int sum, int[] arrayNumbers)
+        public override void ShowResult(int sum, int[] arrayNumbers)
         {
             double average = (double)sum / arrayNumbers.Length;
             Console.WriteLine("This is the average of your elements: " + average);

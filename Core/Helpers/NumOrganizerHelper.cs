@@ -9,17 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Neckington.Helpers
+namespace Neckington.Core.Helpers
 {
-    public class NumOrganizerHelper: MessagesUtils
+    public class NumOrganizerHelper: ActionResults
     {
         public static void InitializeNumberOrganizer()
         {
-            DisplayAndExtractData();
+           NumOrganizerHelper numOrganizerHelper = new NumOrganizerHelper();
+            numOrganizerHelper.ProcessData();
         }
 
-        public override  DisplayAndExtractData()
+        public override void ProcessData()
         {
+            
             Console.Clear();
             Console.WriteLine("Welcome to your ordanizer number.... you're limited to 4 numbers ");
             Console.WriteLine("Please enter numbers that you want organize: ");

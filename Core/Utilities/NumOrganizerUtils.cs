@@ -14,12 +14,10 @@ namespace Neckington.Utilities
             
             for (int i = 0; i < numberOfList; i++)
             {
-
                 Console.WriteLine("Introduce the element: ");
                 element = int.Parse(Console.ReadLine());
 
                 listOfNumbers.Add(element);
-
             }
             ShowNumbers(listOfNumbers);
         }
