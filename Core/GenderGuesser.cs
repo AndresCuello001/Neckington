@@ -11,17 +11,20 @@ namespace Neckington.Core
 {
     public class GenderGuesser: BaseAction
     {
-        public static void InitiliazeGenderGuessser()
-        {
-            GenderGuesser genderGuesserObject = new GenderGuesser();
-            genderGuesserObject.GetData();
-        }
         public override void GetData()
         {
-            int enterValue = GenderGuesserHelper.ProcessData();
+            int enterValue = ProcessData();
             GetResult(enterValue);
         }
 
-     public static void GetResult(int value) => Console.WriteLine(value <= 10 ? "You're a Men" : "You're a Women");
+        public static int ProcessData()
+        {
+            Console.Clear();
+            string enter1 = InputHelper.ReadOptionalString(Constants.GenderGuesserMenu);
+            int enterValue = int.Parse(enter1);
+
+            return enterValue;
+        }
+        public static void GetResult(int value) => Console.WriteLine(value <= 10 ? "You're a Men" : "You're a Women");
     }
 }

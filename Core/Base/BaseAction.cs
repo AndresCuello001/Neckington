@@ -12,10 +12,8 @@ namespace Neckington.Core.Base
         public virtual void ShowResult(int sum, int[] arraynumbers) => Console.WriteLine("Show Result");
         public virtual void ShowResult() => Console.WriteLine();
         public virtual void ExecuteOption(int numberSelection) => Console.WriteLine();
-        public virtual void ExecuteOption(int option, bool ejecutando) => Console.WriteLine();
-        public virtual void GetData() => Console.WriteLine("Here the data is Extracted");
-        public virtual void ProcessData(int value) => Console.WriteLine("Here the data is Processed");
-
+        public virtual void GetData(string DataProcessed) => Console.WriteLine("Here the data is Extracted");
+       
 
     }
 }

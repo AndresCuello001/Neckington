@@ -19,24 +19,18 @@ namespace Neckington.Models
             Contact contact = new Contact();
 
             Console.Clear();
-            
-            Console.WriteLine("Introduce the first name:");
-            contact.FirstName = Console.ReadLine() ?? "";
 
-            Console.WriteLine("Introduce the last name:");
-            contact.LastName = Console.ReadLine() ?? "";
+            contact.FirstName = InputHelper.ReadRequiredString("Introduce the first name: ");
 
-            Console.WriteLine("Introduce the age:");
-            contact.Age = int.Parse(Console.ReadLine() ?? "0");
+            contact.LastName = InputHelper.ReadRequiredString("Introduce the last name: ");
 
-            Console.WriteLine("Introduce number:");
-            contact.PhoneNumber = long.Parse(Console.ReadLine() ?? "0");
+            contact.Age = InputHelper.ReadInt("Introduce the age: ");
              
-            Console.WriteLine("Introduce WorkNumber:");
-            contact.WorkNumber = long.Parse(Console.ReadLine() ?? "0");
+            contact.PhoneNumber = InputHelper.ReadInt("Introduce number: ");
+             
+            contact.WorkNumber = InputHelper.ReadLong("Introduce WorkNumber: ");
 
-            Console.WriteLine("Introduce the Address:");
-            contact.Address = Console.ReadLine() ?? "0";
+            contact.Address = InputHelper.ReadRequiredString("Introduce the Address: ");
 
             return contact;
         }

@@ -13,14 +13,14 @@ public static class Constants
 public const string ArchivePath = @"C:\ArchivoC#\Contact.txt";
 
  public const string Menu = 
-@"--------------------------------------
+@"---------------------------------
 Welcome to Neckington
 What options are you looking for?
-1. Storage Contacts
+1. Manage Contacts
 2. Calculate Leap-Year
-3. PromCalculator
-4. Number Organizer
-5. GenderGuesser
+3. Average Calculator
+4. Number Handler
+5. Gender Guesser
  ----------------------------------";
 
 public const string AverageMenu =           
@@ -39,11 +39,11 @@ public const string GenderGuesserMenu =
  Show contact
  Does contact exist?
  Eliminate a contact
- --------------------";
+ --------------------"     ;
  public const string NumOrganizerMenu =
  @" 
 Welcome to your ordanizer number.... you're limited to 4 numbers 
-Console.WriteLinePlease enter numbers that you want organize";
+Console.WriteLinePlease enter numbers that you want organize"     ;
         
 public const string ContactRegister = 
 @"Contact: {0} FirstName: {1} LastName: {2} +

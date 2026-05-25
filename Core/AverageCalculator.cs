@@ -17,13 +17,19 @@ namespace Neckington.Core
         {
             try
             {
-                AverageCalculator calculatorObject = new AverageCalculator();
-                 int[] DataProcessed = calculatorObject.ProcessingData();
-                 GetCalculation(DataProcessed);
+                StartAverageCalculator();
             }
             catch (Exception ex) {
                 Console.WriteLine("Error" + ex.Message);
             }
+        }
+
+        public static void StartAverageCalculator()
+        {
+
+            AverageCalculator calculatorObject = new AverageCalculator();
+            int[] DataProcessed = calculatorObject.ProcessingData();
+            GetCalculation(DataProcessed);
         }
 
         public static void GetCalculation(int[] arrayNumbers)
@@ -36,31 +42,27 @@ namespace Neckington.Core
         {
             for (int i = 0; i < arrayNumbers.Length; i++)
             {
-                Console.Write($"Introduce the element{i}: ");
-                arrayNumbers[i] = int.Parse(Console.ReadLine() ?? "0");
+                arrayNumbers[i] = InputHelper.ReadInt($"Introduce the element [{i}]");
                 sum += arrayNumbers[i];
             }
-                ShowResult(sum, arrayNumbers);
+              AverageCalculator averageResultObject = new AverageCalculator();    
+               averageResultObject.ShowResult(sum, arrayNumbers);
         }
    
         public int[] ProcessingData() 
         {
-            Console.WriteLine(Constants.AverageMenu);
-            string n = Console.ReadLine() ?? "0";
-
-            int numberOfArrays = int.Parse(n);
+            
+            string n = InputHelper.ReadRequiredString(Constants.AverageMenu);
+            int numberOfArrays = InputHelper.ReadInt(n);
             int[] arrayNumbers = new int[numberOfArrays];
 
             return arrayNumbers;
         }
 
-        public static void ShowResult(int sum, int[] arrayNumbers)
+        public override void ShowResult(int sum, int[] arrayNumbers)
         {
             double average = (double)sum / arrayNumbers.Length;
             Console.WriteLine("This is the average of your elements: " + average);
         }
-
-
-
-    }
+   }
 }

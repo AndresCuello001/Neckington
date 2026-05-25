@@ -46,7 +46,6 @@ namespace Neckington.Core.Base
             }
 
         }
-
         public void Delete()
         {
             Console.Clear();
@@ -55,7 +54,6 @@ namespace Neckington.Core.Base
                 File.Delete(Constants.ArchivePath);
                 Console.WriteLine("Contact deleted!");
             }
-
             
         }
     }

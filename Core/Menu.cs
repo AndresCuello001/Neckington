@@ -2,38 +2,27 @@
 using Neckington.Core.Configuration;
 using Neckington.Helpers;
 using Neckington.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Spectre.Console;
 namespace Neckington.Core
 {
     public class Menu : BaseAction
     {
-        public static void ShowProgramName()
-        {
-            Console.WriteLine("<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>");
-            Console.WriteLine("..........NECKINGTON...........");
-            Console.WriteLine("<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>");
-            Thread.Sleep(5000);
-        }
         public static int ProcessMenu()
         {
             Console.Clear();
-            Console.WriteLine(Constants.Menu);
-            string selection = Console.ReadLine() ?? "0";
-            int NumberSelection = int.Parse(selection);
+            string selection = InputHelper.ReadRequiredString(Constants.Menu);
+            int OptionSelection = InputHelper.ReadInt(selection);
 
-            return NumberSelection;
+            return OptionSelection;
         }
 
         public static void ShowMenu()
         {
-            int NumberSelection = MenuHelper.ProcessMenu();
+            Console.Clear();
+            int NumberSelection = ProcessMenu();
 
-            Menu menuUtilsObject = new Menu();
-            menuUtilsObject.ExecuteOption(NumberSelection);
+            Menu menuObject = new Menu();
+            menuObject.ExecuteOption(NumberSelection);
         }
         
         public override void ExecuteOption(int NumberSelection)
@@ -46,16 +35,16 @@ namespace Neckington.Core
                         InitializeContactStorage();
                         break;
                     case 2:
-                           // LeapYear.();
+                        InitializeLeapYear(); 
                         break;
                     case 3:
                         InitializeAverageCalculator();
                         break;
                     case 4:
-                        NumOrganizer.InitializeNumberOrganizer();
+                        InitializeNumberOrganizer();
                         break;
                     case 5:
-                        GenderGuesser.InitiliazeGenderGuessser();
+                       InitiliazeGenderGuessser();
                         break;
 
                     default:
@@ -64,17 +53,16 @@ namespace Neckington.Core
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine("Error" + ex.Message);
             }
         }
 
         public static void InitializeContactStorage()
         {
-            bool ejecutando = true;
+            
             try
             {
-                ContactManagment.ExecuteContactMenu(ejecutando);
+                ExecuteContactMenu();
             }
             catch (Exception ex)
             {
@@ -84,26 +72,59 @@ namespace Neckington.Core
         public static void InitializeAverageCalculator()
         {
             AverageCalculator average = new AverageCalculator();
-            average.GetData();
+            average.ProcessingData();
         }
-        public override void ExecuteOption(int option, bool ejecutando)
+
+        public static void InitializeLeapYear() 
         {
-            switch (option)
-            {
-                case 1:
-                    CreateContact();
-                    break;
-                case 2:
-                    ReadContact();
-                    break;
-                case 3:
-                    UpdateContact();
-                    break;
-                case 4:
-                    DeleteContact();
-                    break;
-                default:
-                    throw new ArgumentException("Option doesn't exits");
+            int year = LeapYear.ProcessData();
+            LeapYear.GetResult(year);
+        }
+        
+
+        public static void InitiliazeGenderGuessser()
+        {
+            GenderGuesser genderGuesserObject = new GenderGuesser();
+            genderGuesserObject.GetData();
+        }
+
+        public static void InitializeNumberOrganizer()
+        {
+            string DataProcessed = NumberHandler.ProcessData();
+            NumberHandler numberHandlerObject = new NumberHandler();
+            numberHandlerObject.GetData(DataProcessed);
+        }
+
+        public static void ExecuteContactMenu()
+        {
+             int option = InputHelper.ReadInt(Constants.InitializeContactStorageMenu);
+
+            Menu contactManagmentObject = new Menu();
+            ExecuteContactMenu(option);
+        }
+
+        public static void ExecuteContactMenu(int option)
+        {
+            bool ejecutando = true;
+            while (ejecutando) {
+
+                switch (option)
+                {
+                    case 1:
+                        CreateContact();
+                        break;
+                    case 2:
+                        ReadContact();
+                        break;
+                    case 3:
+                        UpdateContact();
+                        break;
+                    case 4:
+                        DeleteContact();
+                        break;
+                    default:
+                        throw new ArgumentException("Option doesn't exits");
+                }
             }
             if (ejecutando)
             {
@@ -111,20 +132,9 @@ namespace Neckington.Core
                 Console.ReadKey();
             }
         }
-        public static void ExecuteContactMenu(bool ejecutando)
-        {
-            Console.Clear();
-            Console.WriteLine(Constants.InitializeContactStorageMenu);
-            int option = int.Parse(Console.ReadLine());
-
-            ContactManagment contactManagmentObject = new ContactManagment();
-            contactManagmentObject.ExecuteOption(option, ejecutando);
-
-
-
+        
         public static void CreateContact()
         {
-
             Contact contactObject1 = new Contact();
             var contact = contactObject1.ContactCreation();
             contactObject1.Create(contact);
@@ -134,7 +144,6 @@ namespace Neckington.Core
         {
             Contact Contactobject2 = new Contact();
             Contactobject2.ShowContact();
-
         }
 
         public static void UpdateContact()
@@ -147,13 +156,37 @@ namespace Neckington.Core
         {
             Contact contactObject3 = new Contact();
             contactObject3.ContactDelete();
-
         }
-        public static void InitializeAverageCalculator()
+
+        public static void ShowProgramName()
         {
-            AverageCalculator average = new AverageCalculator();
-            average.GetData();
-        }
+            
+        string[] logo = new[]
+            
+         {
+        "███╗   ██╗███████╗ ██████╗██╗  ██╗██╗███╗   ██╗ ██████╗ ████████╗ ██████╗ ███╗   ██╗",
+        "████╗  ██║██╔════╝██╔════╝██║ ██╔╝██║████╗  ██║██╔════╝ ╚══██╔══╝██╔═══██╗████╗  ██║",
+        "██╔██╗ ██║█████╗  ██║     █████╔╝ ██║██╔██╗ ██║██║  ███╗   ██║   ██║   ██║██╔██╗ ██║",
+        "██║╚██╗██║██╔══╝  ██║     ██╔═██╗ ██║██║╚██╗██║██║   ██║   ██║   ██║   ██║██║╚██╗██║",
+        "██║ ╚████║███████╗╚██████╗██║  ██╗██║██║ ╚████║╚██████╔╝   ██║   ╚██████╔╝██║ ╚████║",
+        "╚═╝  ╚═══╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝  ╚═══╝",
+        };
 
+            Console.Clear();
+            int top = (Console.WindowHeight - logo.Length) / 2;
+
+            foreach (var line in logo)
+            {
+                int left = (Console.WindowWidth - line.Length) / 2;
+                Console.SetCursorPosition(Math.Max(0, left), top++);
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(line);
+            }
+
+            Console.ResetColor();
+            Thread.Sleep(3000);
+            Console.Clear();
+        }
     }
 }
+

@@ -10,16 +10,11 @@ namespace Neckington.Core
 {
     public class LeapYear : BaseAction
     {
-        public override void GetData()
-        {
-            int year = ProcessData();
-            GetResult(year);
-        }
+      
         public static int ProcessData()
         {
             Console.Clear();
-            Console.WriteLine("Write the year you want to evaluate");
-            string year1 = Console.ReadLine() ?? "0";
+            string year1 = InputHelper.ReadRequiredString("Write the year you want to evaluate");
 
             int year = int.Parse(year1);
             return year;
