@@ -1,8 +1,7 @@
 ﻿
-using Neckington.Core.Helpers;
 using System.Collections;
 using System.ComponentModel.Design;
-using Neckington.Core.Base;
+using Neckington.Core;
 namespace Neckington
 {
     public class Program

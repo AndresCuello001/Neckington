@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Neckington.Core.Base;
+using Neckington.Core.Configuration;
 
-namespace Neckington.Utilities
+namespace Neckington.Helpers
 {
-    public class NumOrganizerUtils
+    public class NumOrganizerHelper: BaseAction
     {
+
+        public static string ProcessData()
+        {
+            Console.Clear();
+            Console.WriteLine(Constants.NumOrganizerMenu);
+            string n = Console.ReadLine() ?? "0";
+
+            return n; 
+
+        }
+
         public static void GetNumbers(List<int> listOfNumbers, int numberOfList)
         {
             int element = 0;

@@ -6,10 +6,13 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Neckington.Core.Base;
+using Neckington.Core.Configuration;
+using Neckington.Helpers;
 
 namespace Neckington.Models
 {
-    public class Contact
+    public class Contact : BaseRegistry
     {
         public Contact ContactCreation()
         {
@@ -38,6 +41,15 @@ namespace Neckington.Models
             return contact;
         }
 
+        public void RegisterContact(Contact contact) => Create(contact);
+        public override string ToString() =>string.Format(Constants.ContactRegister, Id, FirstName, LastName, Age, PhoneNumber, WorkNumber, Address);
+
+        public void ShowContact() => Read();
+       
+        public void ContactUpdate() => Update();
+        
+        public void ContactDelete() => Delete();
+        
         public string? Id { get; set; }
         
         [Required]
@@ -46,9 +58,7 @@ namespace Neckington.Models
         public string? LastName { get; set; } 
         public int Age { get; set; }
         public long PhoneNumber { get; set; }
-       
         public long WorkNumber { get; set; }
-       
         public string? Address { get; set; } 
 
         // public static int counter = 1;
