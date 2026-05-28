@@ -19,6 +19,5 @@ namespace Neckington.Data
 
                          return new AppDbContext(optionsBuilder.Options);
         }
-   }
-    
+   }  
 }

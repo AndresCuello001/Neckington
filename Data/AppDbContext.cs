@@ -22,8 +22,8 @@ namespace Neckington.Data
             {
                 optionsBuilder.UseSqlServer(Constants.ConnectionString);
             }
-        }
 
+        }
 
 
         public DbSet<Contact> Contact {get; set;}
