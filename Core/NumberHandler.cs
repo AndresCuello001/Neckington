@@ -15,7 +15,6 @@ namespace Neckington.Core
 {
     public class NumberHandler : BaseAction
     {
-        
         public override void GetData(string DataProcessed)
         {
             
@@ -31,6 +30,7 @@ namespace Neckington.Core
 
             return n;
         }
+
         public static void GetNumbers(List<int> listOfNumbers, int numberOfList)
         {
             int element = 0;
@@ -51,7 +51,6 @@ namespace Neckington.Core
         }
     
         public static void ResultOrganize(List<int> listOfNumbers, int numberOfList) => GetNumbers(listOfNumbers, numberOfList);
-
     } 
 }   
      

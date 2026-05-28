@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Neckington.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,9 +27,8 @@ namespace Neckington.Helpers
                 {    
                     Console.WriteLine("Invalid number. Try again.");
                 }
-
             }
-        }
+       }
 
         public static long ReadLong(string message)
         {
@@ -72,8 +72,22 @@ namespace Neckington.Helpers
 
             return Console.ReadLine() ?? string.Empty;
         }
-    
+          
+        public static DateTime ReadRequiredDateTime(string message)
+        {
+           Console.Write(message);
 
+           string input = Console.ReadLine();
+
+           if (DateTime.TryParse(input, out DateTime dob))
+           {
+             return dob;
+           }
+            Console.WriteLine("Invalid date");
+             return DateTime.MinValue;
+        }
     }
 }
+ 
+
 

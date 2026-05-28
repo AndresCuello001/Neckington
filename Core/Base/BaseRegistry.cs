@@ -6,17 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Neckington.Core.Configuration;
 using System.IO.Compression;
+using Microsoft.EntityFrameworkCore;
+using Neckington.Data;
 
 namespace Neckington.Core.Base
 {
     public class BaseRegistry
     {
+        BaseRegistry(AppDbContext context) 
+        { 
+            _context = context;
+        }
+        
         public void Create(dynamic entity)
         {
-            using (var sw = new StreamWriter(Constants.ArchivePath, true))
-            {
-                sw.WriteLine(entity.ToString());
-            }
+           _context.Add(entity);
+           _context.SaveChanges();
         }
 
         public void Read()
@@ -44,8 +49,8 @@ namespace Neckington.Core.Base
                 }
                 File.WriteAllLines(Constants.ArchivePath, archive);
             }
-
         }
+        
         public void Delete()
         {
             Console.Clear();
@@ -56,6 +61,9 @@ namespace Neckington.Core.Base
             }
             
         }
+    
+        public readonly AppDbContext _context;
+    
     }
 }
        

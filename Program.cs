@@ -1,7 +1,9 @@
 ﻿
 using System.Collections;
 using System.ComponentModel.Design;
+using Microsoft.EntityFrameworkCore;
 using Neckington.Core;
+using Neckington.Data;
 namespace Neckington
 {
     public class Program

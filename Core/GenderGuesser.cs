@@ -11,7 +11,7 @@ namespace Neckington.Core
 {
     public class GenderGuesser: BaseAction
     {
-        public override void GetData()
+        public void GetData()
         {
             int enterValue = ProcessData();
             GetResult(enterValue);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Neckington.Core.Base
 {
-   public abstract class BaseAction
+   public class BaseAction
    {
         public virtual void ShowResult(int sum, int[] arraynumbers) => Console.WriteLine("Show Result");
         public virtual void ShowResult() => Console.WriteLine();

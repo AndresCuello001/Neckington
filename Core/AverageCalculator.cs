@@ -48,7 +48,6 @@ namespace Neckington.Core
               AverageCalculator averageResultObject = new AverageCalculator();    
                averageResultObject.ShowResult(sum, arrayNumbers);
         }
-   
         public int[] ProcessingData() 
         {
             
