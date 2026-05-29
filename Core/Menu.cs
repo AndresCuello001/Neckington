@@ -7,6 +7,7 @@ using Neckington.Helpers;
 using Neckington.Models;
 using Neckington.Services;
 using Spectre.Console;
+using Neckington.Core.Factory;
 namespace Neckington.Core
 {
     public class Menu : BaseAction
@@ -130,35 +131,25 @@ namespace Neckington.Core
                         break;
                     default:
                         throw new ArgumentException("Option doesn't exits");
-                }
+            }
          }
             
         public static void CreateContact()
         {
-            Console.Clear();
-            var options = DatabaseConfig.GetOptions();
-            var context = new AppDbContext(options);
-
-            ContactCreation(context);
-        }
-
-        public static void ContactCreation(AppDbContext context)
-        {
-
-            ContactRepository<Contact> contactRepositoryObject = new ContactRepository<Contact>(context);
-            var contact = ContactServices.GetContactCreation();
-            contactRepositoryObject.Create(contact);
+            var ContactRepository = ContactRepositoryFactory.CreateContactRepository();
+            var contact = ContactServices.GetContactCreation();  
+            ContactRepository.Create(contact);
         }
 
         public static void ReadContact()
         {
-            //Contact Contactobject2 = new Contact();
+           //var contact = new Contact();
            // Contactobject2.ShowContact();
         }
 
         public static void UpdateContact()
         {
-            //Contact contactObject2 = new Contact();
+           //Contact contactObject2 = new Contact();
            //contactObject2.Update();
         }
 
@@ -166,12 +157,6 @@ namespace Neckington.Core
         {
             //Contact contactObject3 = new Contact();
             //contactObject3.ContactDelete();
-        }
-        public static Contact GetContactCreation()
-        {
-            ContactServices contactServicesObject = new ContactServices();
-            var contact = contactServicesObject.ContactCreation();
-            return contact;
         }
         
         public static void ShowProgramName()

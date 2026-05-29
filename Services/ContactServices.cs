@@ -1,4 +1,5 @@
-﻿using Neckington.Core.Interfaces;
+﻿using Neckington.Core.Factory;
+using Neckington.Core.Interfaces;
 using Neckington.Helpers;
 using Neckington.Models;
 using System;
@@ -13,7 +14,7 @@ namespace Neckington.Services
     {
         public Contact ContactCreation()
         {
-            Contact contact = new Contact();
+            var contact = ContactFactory.Create();
 
             Console.Clear();
 

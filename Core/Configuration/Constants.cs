@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Neckington.Core.Configuration
 {
-    public static class Constants
-    {
-        public const string ArchivePath = @"C:\ArchivoC#\Contact.txt";
+public static class Constants
+{
+public const string ArchivePath = @"C:\ArchivoC#\Contact.txt";
 
-        public const string Menu =
-       @"---------------------------------
+public const string Menu =
+@"---------------------------------
 Welcome to Neckington
 What options are you looking for?
 1. Manage Contacts
@@ -23,8 +23,8 @@ What options are you looking for?
 5. Gender Guesser
  ----------------------------------";
 
-        public const string AverageMenu =
-        @"You have select the PromCalculator:            
+public const string AverageMenu =
+@"You have select the PromCalculator:            
 Write down How many numbers you wanna calculate";
 
 public const string GenderGuesserMenu =
@@ -33,7 +33,7 @@ public const string GenderGuesserMenu =
  If you're a men type whatever number between 1 and 10 ";
 
 public const string InitializeContactStorageMenu =
-        @"
+@"
  -----------------------
  Register a contact
  Show contact
@@ -52,7 +52,5 @@ Age: {3} Number: {4} WorkNumber: {5} Address: {6}";
 
 public const string ConnectionString = "Server=DESKTOP-H48QVLV;Database=NeckingtonDatabase;Trusted_Connection=True;TrustServerCertificate=True;";
 
-
-
-    }
+   }
 }

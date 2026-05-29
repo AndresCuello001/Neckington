@@ -11,7 +11,6 @@ namespace Neckington.Data
 { 
     public class AppDbContext : DbContext
     {
-
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
             
@@ -24,7 +23,6 @@ namespace Neckington.Data
             }
 
         }
-
 
         public DbSet<Contact> Contact {get; set;}
     }
