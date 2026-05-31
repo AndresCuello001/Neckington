@@ -50,7 +50,6 @@ namespace Neckington.Core
         }
         public int[] ProcessingData() 
         {
-            
             string n = InputHelper.ReadRequiredString(Constants.AverageMenu);
             int numberOfArrays = InputHelper.ReadInt(n);
             int[] arrayNumbers = new int[numberOfArrays];

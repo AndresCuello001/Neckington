@@ -19,6 +19,5 @@ namespace Neckington.Core.Factory
 
             return new ContactRepository<Contact>(context);
         }
-    
     }
 }

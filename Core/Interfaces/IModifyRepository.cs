@@ -10,7 +10,5 @@ namespace Neckington.Core.Interfaces
     {
        // public void Update(T entity);
         //public void Delete(T entity);
-
-
     }
 }

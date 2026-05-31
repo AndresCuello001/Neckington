@@ -2,8 +2,10 @@
 using System.Collections;
 using System.ComponentModel.Design;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Logging;
 using Neckington.Core;
 using Neckington.Data;
+using Neckington.Helpers;
 namespace Neckington
 {
     public class Program
@@ -12,7 +14,7 @@ namespace Neckington
         {
             try
             {
-                Menu.ShowProgramName();
+                LogoHelper.ShowProgramName();
                 Menu.ShowMenu();
             }
             catch (Exception ex) {

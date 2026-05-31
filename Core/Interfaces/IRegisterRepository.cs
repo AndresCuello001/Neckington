@@ -9,10 +9,10 @@ namespace Neckington.Core.Interfaces
 {
     public interface IRegisterRepository<T>
     {
-        public T Create(T entity);
-        
-        //public List<T> GetList();
-        //public void Add(T entity);
+        public void Create(T entity);
+        public List<T> GetAll();
+
+    //   public void Uod(T entity);
     
     }
 }

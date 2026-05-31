@@ -15,10 +15,7 @@ namespace Neckington.Core.Configuration
                 var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
                 optionsBuilder.UseSqlServer(Constants.ConnectionString);
                 return optionsBuilder.Options;
-        
         }
     }
-
-
 }
 

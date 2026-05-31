@@ -32,10 +32,6 @@ namespace Neckington.Core
 
         public override void ExecuteOption(int NumberSelection)
         {
-            Console.Clear();
-            bool ejecutando = true;
-            while (ejecutando)
-            {
                 try
                 {
                     switch (NumberSelection)
@@ -55,7 +51,6 @@ namespace Neckington.Core
                         case 5:
                             InitiliazeGenderGuessser();
                             break;
-
                         default:
                             throw new ArgumentException("The selection number doesn't exist");
                     }
@@ -63,12 +58,7 @@ namespace Neckington.Core
                 catch (Exception ex)
                 {
                     Console.WriteLine("Error" + ex.Message);
-                }
-            
-            if(ejecutando)
-             Console.WriteLine("\nPresiona una tecla para continuar");
-              Console.ReadKey();
-            }
+                }    
         }
         public static void InitializeContactStorage()
         {
@@ -132,7 +122,7 @@ namespace Neckington.Core
                     default:
                         throw new ArgumentException("Option doesn't exits");
             }
-         }
+        }
             
         public static void CreateContact()
         {
@@ -143,8 +133,10 @@ namespace Neckington.Core
 
         public static void ReadContact()
         {
-           //var contact = new Contact();
-           // Contactobject2.ShowContact();
+ 
+            var contactRepostory = ContactRepositoryFactory.CreateContactRepository();
+            var ContactList = contactRepostory.GetAll();
+            ContactServices.PrintContact(ContactList);
         }
 
         public static void UpdateContact()
@@ -159,35 +151,7 @@ namespace Neckington.Core
             //contactObject3.ContactDelete();
         }
         
-        public static void ShowProgramName()
-        {
-            
-         string[] logo = new[]
-            
-         {
-        "███╗   ██╗███████╗ ██████╗██╗  ██╗██╗███╗   ██╗ ██████╗ ████████╗ ██████╗ ███╗   ██╗",
-        "████╗  ██║██╔════╝██╔════╝██║ ██╔╝██║████╗  ██║██╔════╝ ╚══██╔══╝██╔═══██╗████╗  ██║",
-        "██╔██╗ ██║█████╗  ██║     █████╔╝ ██║██╔██╗ ██║██║  ███╗   ██║   ██║   ██║██╔██╗ ██║",
-        "██║╚██╗██║██╔══╝  ██║     ██╔═██╗ ██║██║╚██╗██║██║   ██║   ██║   ██║   ██║██║╚██╗██║",
-        "██║ ╚████║███████╗╚██████╗██║  ██╗██║██║ ╚████║╚██████╔╝   ██║   ╚██████╔╝██║ ╚████║",
-        "╚═╝  ╚═══╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝    ╚═╝    ╚═════╝ ╚═╝  ╚═══╝",
-        };
-
-            Console.Clear();
-            int top = (Console.WindowHeight - logo.Length) / 2;
-
-            foreach (var line in logo)
-            {
-                int left = (Console.WindowWidth - line.Length) / 2;
-                Console.SetCursorPosition(Math.Max(0, left), top++);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(line);
-            }
-
-            Console.ResetColor();
-            Thread.Sleep(3000);
-            Console.Clear();
-        }
+       
     }
 }
 

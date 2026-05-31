@@ -8,8 +8,10 @@ using Neckington.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Neckington.Models
 {
+    [Index("UserEmail", IsUnique = true)]
     public class Contact 
     {
         [Key]
@@ -19,6 +21,7 @@ namespace Neckington.Models
         [Required]
         public string? LastName { get; set; } 
         public DateTime? DateOfBirth { get; set; }
+        public string? UserEmail {get; set;}
         public long PhoneNumber { get; set; }
         public long WorkNumber { get; set; }
         public string? Address { get; set; }

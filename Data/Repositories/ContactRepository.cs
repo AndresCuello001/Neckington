@@ -1,4 +1,9 @@
-﻿using Neckington.Core.Interfaces;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using Neckington.Core.Factory;
+using Neckington.Core.Interfaces;
+using Neckington.Models;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +12,31 @@ using System.Threading.Tasks;
 
 namespace Neckington.Data.Repositories
 {
-    public class ContactRepository<Contact> : IRegisterRepository<Contact> , IModifyActions<Contact>
+    public class ContactRepository<T>: IRegisterRepository<Contact> , IModifyActions<Contact>
     {
         public ContactRepository(AppDbContext context)
         { 
              _context = context;
         }
-        
+ 
         public void Create(Contact contact)
         {
-
-            _context.Add(contact);
-            _context.SaveChanges();
-
+           _context.Add(contact);
+           _context.SaveChanges();
+          
         }
 
+        public List<Contact> GetAll()
+        {
+            return _context.Contact.ToList();   
+        }
 
-        
-
-
-       private readonly AppDbContext _context;
+        private readonly AppDbContext _context;
+    
+    
+    
+    
+    
+    
     }
 }
