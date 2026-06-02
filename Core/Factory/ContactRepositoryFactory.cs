@@ -15,7 +15,7 @@ namespace Neckington.Core.Factory
         public static ContactRepository<Contact> CreateContactRepository() 
         {
             var options = DatabaseConfig.GetOptions();
-            var context = AppDbContextFactory.Create();
+            var context = ContactDbContextFactory.Create();
 
             return new ContactRepository<Contact>(context);
         }

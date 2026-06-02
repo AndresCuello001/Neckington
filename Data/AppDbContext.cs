@@ -9,7 +9,7 @@ using Neckington.Core.Configuration;
 
 namespace Neckington.Data 
 { 
-    public class AppDbContext : DbContext
+    public class ContactDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

@@ -23,10 +23,8 @@ namespace Neckington.Core
                 Console.WriteLine("Error" + ex.Message);
             }
         }
-
         public static void StartAverageCalculator()
         {
-
             AverageCalculator calculatorObject = new AverageCalculator();
             int[] DataProcessed = calculatorObject.ProcessingData();
             GetCalculation(DataProcessed);

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neckington", "Neckington.csproj", "{426AFA1E-596C-4939-8CA5-EF3AD3AC9347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASD.DLL", "..\ASD.DLL\ASD.DLL.csproj", "{48E86F6A-D2F9-4AD6-A40D-A7A6087801F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{426AFA1E-596C-4939-8CA5-EF3AD3AC9347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{426AFA1E-596C-4939-8CA5-EF3AD3AC9347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{426AFA1E-596C-4939-8CA5-EF3AD3AC9347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E86F6A-D2F9-4AD6-A40D-A7A6087801F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E86F6A-D2F9-4AD6-A40D-A7A6087801F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E86F6A-D2F9-4AD6-A40D-A7A6087801F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E86F6A-D2F9-4AD6-A40D-A7A6087801F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

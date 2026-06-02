@@ -1,5 +1,6 @@
 ﻿using Neckington.Core.Factory;
 using Neckington.Core.Interfaces;
+using Neckington.Data.Repositories;
 using Neckington.Helpers;
 using Neckington.Models;
 using System;
@@ -11,28 +12,11 @@ namespace Neckington.Services
 {
     public class ContactServices
     {
-        public Contact ContactCreation()
+        public ContactServices(ContactRepository<Contact> contactRepository)
         {
-            var contact = ContactFactory.Create();
-
-            Console.Clear();
-
-            contact.FirstName = InputHelper.ReadRequiredString("Introduce the first name: ");
-
-            contact.LastName = InputHelper.ReadRequiredString("Introduce the last name: ");
-
-            contact.DateOfBirth = InputHelper.ReadRequiredDateTime("Introduce the Date Of birth: ");
-            
-            contact.UserEmail = InputHelper.ReadRequiredString("Introduce the Email: ");
-            
-            contact.PhoneNumber = InputHelper.ReadInt("Introduce number: ");
-
-            contact.WorkNumber = InputHelper.ReadLong("Introduce WorkNumber: ");
-
-            contact.Address = InputHelper.ReadRequiredString("Introduce the Address: ");
-
-            return contact;
+            _contactRepository = contactRepository;
         }
+
 
         public static Contact GetContactCreation()
         {
@@ -41,22 +25,73 @@ namespace Neckington.Services
             return contact;
         }
 
-            public static void PrintContact(List<Contact> contact)
-            {
-                var contactList = contact.OrderBy(c => c.Id).ToList();
+        public static void PrintContact(List<Contact> contact)
+        {
+            var listOfContacts = contact.OrderBy(c => c.Id).ToList();
 
-                foreach (var contacts in contactList)
-                {
-                    Console.WriteLine($@"Contact : {contacts.Id}
-                    Contact FirstName: {contacts.FirstName}
-                    Contact LastName: {contacts.LastName}
-                    Contact Email: {contacts.UserEmail}
-                    Contact PhoneNumber: {contacts.PhoneNumber}
-                    Contact WorkNumber: {contacts.WorkNumber}
-                    Contact Address: {contacts.Address}"
-                    );
-                }
+            foreach (var items in listOfContacts)
+            {
+                Console.WriteLine($@"Contact : {items.Id}
+                Contact FirstName: {items.FirstName}
+                Contact LastName: {items.LastName}
+                Contact Email: {items.UserEmail}
+                Contact PhoneNumber: {items.PhoneNumber}
+                Contact WorkNumber: {items.WorkNumber}
+                Contact Address: {items.Address}"
+                );
             }
+        }
+
+        /*public Contact ContactUpdate()
+        {
+            var contact = new Contact();
+
+            Console.WriteLine("Enter the values you want to update");
+            /
+ 
+         */
+
+        public static void CreateContact()
+        {
+            var ContactRepository = ContactRepositoryFactory.CreateContactRepository();
+            var contact = ContactServices.GetContactCreation();
+            ContactRepository.Create(contact);
+        }
+
+        public static void ReadContact()
+        {
+
+            var contactRepostory = ContactRepositoryFactory.CreateContactRepository();
+            var ContactList = contactRepostory.GetAll();
+            ContactServices.PrintContact(ContactList);
+        }
+
+        public static void UpdateContact()
+        {
+            //Contact contactObject2 = new Contact();
+            //contactObject2.Update();
+        }
+
+        public static void DeleteContact()
+        {
+            //Contact contactObject3 = new Contact();
+            //contactObject3.ContactDelete();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        private readonly ContactRepository<Contact> _contactRepository;
     }
-}
+}//Ctrl + F replace all the names
+
+
 

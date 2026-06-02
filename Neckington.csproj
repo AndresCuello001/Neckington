@@ -21,4 +21,8 @@
     <PackageReference Include="Spectre.Console" Version="0.54.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ASD.DLL\ASD.DLL.csproj" />
+  </ItemGroup>
+
 </Project>

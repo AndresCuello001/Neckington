@@ -12,7 +12,7 @@ namespace Neckington.Core.Interfaces
         public void Create(T entity);
         public List<T> GetAll();
 
-    //   public void Uod(T entity);
+    //   public void asd(T entity);
     
     }
 }

@@ -10,7 +10,7 @@ using Neckington.Data;
 
 namespace Neckington.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ContactDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Neckington.Core.Factory
 {
-    public static class AppDbContextFactory
+    public static class ContactDbContextFactory
     {
-        public static AppDbContext Create() 
+        public static ContactDbContext Create() 
         {
             var options = DatabaseConfig.GetOptions();
-            return new AppDbContext(options);
+            return new ContactDbContext(options);
         }
     
     }

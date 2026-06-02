@@ -14,29 +14,25 @@ namespace Neckington.Data.Repositories
 {
     public class ContactRepository<T>: IRegisterRepository<Contact> , IModifyActions<Contact>
     {
-        public ContactRepository(AppDbContext context)
+        public ContactRepository(ContactDbContext context)
         { 
              _context = context;
         }
- 
         public void Create(Contact contact)
         {
            _context.Add(contact);
            _context.SaveChanges();
-          
         }
-
+        public void Update(Contact Contact)
+        {
+            _context.Contact.Find();
+        }
         public List<Contact> GetAll()
         {
             return _context.Contact.ToList();   
         }
 
-        private readonly AppDbContext _context;
-    
-    
-    
-    
-    
-    
+        private readonly ContactDbContext _context;
+
     }
 }

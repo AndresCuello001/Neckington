@@ -8,7 +8,7 @@ namespace Neckington.Core.Interfaces
 {
     public interface IModifyActions<T>
     {
-       // public void Update(T entity);
+         public void Update(T entity);
         //public void Delete(T entity);
     }
 }

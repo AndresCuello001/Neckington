@@ -10,9 +10,9 @@ namespace Neckington.Core.Configuration
 { 
     public static class DatabaseConfig
     {
-        public static DbContextOptions<AppDbContext> GetOptions()
+        public static DbContextOptions<ContactDbContext> GetOptions()
         {
-                var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+                var optionsBuilder = new DbContextOptionsBuilder<ContactDbContext>();
                 optionsBuilder.UseSqlServer(Constants.ConnectionString);
                 return optionsBuilder.Options;
         }
