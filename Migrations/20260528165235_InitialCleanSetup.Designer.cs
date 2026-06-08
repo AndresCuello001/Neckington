@@ -11,7 +11,7 @@ using Neckington.Data;
 
 namespace Neckington.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ContactDbContext))]
     [Migration("20260528165235_InitialCleanSetup")]
     partial class InitialCleanSetup
     {
@@ -25,7 +25,7 @@ namespace Neckington.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Neckington.Models.Contact", b =>
+            modelBuilder.Entity("Neckington.Models.CreateContactDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace Neckington.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contact");
+                    b.ToTable("CreateContactDto");
                 });
 #pragma warning restore 612, 618
         }

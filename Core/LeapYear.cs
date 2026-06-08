@@ -10,6 +10,13 @@ namespace Neckington.Core
 {
     public class LeapYear : BaseAction
     {
+
+        public static void InitializeLeapYear()
+        {
+            int year = ProcessData();
+             GetResult(year);
+        }
+
         public static int ProcessData()
         {
             Console.Clear();

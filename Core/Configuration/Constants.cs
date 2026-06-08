@@ -10,7 +10,7 @@ namespace Neckington.Core.Configuration
 {
     public static class Constants
     {
-       public const string ArchivePath = @"C:\ArchivoC#\Contact.txt";
+       public const string ArchivePath = @"C:\ArchivoC#\CreateContactDto.txt";
         
         public const string Menu =
         """ 
@@ -18,7 +18,7 @@ namespace Neckington.Core.Configuration
             
         Welcome to Neckington
         What options are you looking for?
-        1. Manage Contacts
+        1. Manage CreateContactDtos
         2. Calculate Leap-Year
         3. Average Calculator
         4. Number Handler
@@ -38,13 +38,13 @@ namespace Neckington.Core.Configuration
          Next you have to answer these follow questions to guess your gender
          If you're a men type whatever number between 1 and 10 
         """;
-        public const string InitializeContactStorageMenu =
+        public const string InitializeCreateContactDtoStorageMenu =
         """
          -----------------------
-         Register a contact
-         Show contact
-         Does contact exist?
-         Eliminate a contact
+         Register a CreateContactDto
+         Show CreateContactDto
+         Does CreateContactDto exist?
+         Eliminate a CreateContactDto
          --------------------
          """;
         public const string NumOrganizerMenu =
@@ -52,14 +52,30 @@ namespace Neckington.Core.Configuration
         Welcome to your ordanizer number.... you're limited to 4 numbers 
         Console.WriteLinePlease enter numbers that you want organize"
         """;
-        public const string ContactRegister =
+        public const string CreateContactDtoRegister =
         """
 
-        @"Contact: {0} FirstName: {1} LastName: {2} +
+        @"CreateContactDto: {0} FirstName: {1} LastName: {2} +
         Age: {3} Number: {4} WorkNumber: {5} Address: {6}"
         """;
 
         public const string ConnectionString = "Server=DESKTOP-H48QVLV;Database=NeckingtonDatabase;Trusted_Connection=True;TrustServerCertificate=True;";
 
+
+
+
+        public const string ShowCreateContactDtoDTO =
+        """
+         ID: {CreateContactDto.Id}
+        Name: {CreateContactDto.FirstName} {CreateContactDto.LastName}
+        Email: CreateContactDto.UserEmail}
+        """;
+    
+    
+    
     }
+
+
+
+
 }

@@ -12,13 +12,13 @@ namespace Neckington.Migrations
         {
             migrationBuilder.AddColumn<string>(
                 name: "UserEmail",
-                table: "Contact",
+                table: "CreateContactDto",
                 type: "nvarchar(450)",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contact_UserEmail",
-                table: "Contact",
+                name: "IX_CreateContactDto_UserEmail",
+                table: "CreateContactDto",
                 column: "UserEmail",
                 unique: true,
                 filter: "[UserEmail] IS NOT NULL");
@@ -28,12 +28,12 @@ namespace Neckington.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropIndex(
-                name: "IX_Contact_UserEmail",
-                table: "Contact");
+                name: "IX_CreateContactDto_UserEmail",
+                table: "CreateContactDto");
 
             migrationBuilder.DropColumn(
                 name: "UserEmail",
-                table: "Contact");
+                table: "CreateContactDto");
         }
     }
 }

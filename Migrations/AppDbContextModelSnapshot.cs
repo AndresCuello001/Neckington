@@ -11,7 +11,7 @@ using Neckington.Data;
 namespace Neckington.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    partial class CreateContactDtoDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace Neckington.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Neckington.Models.Contact", b =>
+            modelBuilder.Entity("Neckington.Models.CreateContactDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace Neckington.Migrations
                         .IsUnique()
                         .HasFilter("[UserEmail] IS NOT NULL");
 
-                    b.ToTable("Contact");
+                    b.ToTable("CreateContactDto");
                 });
 #pragma warning restore 612, 618
         }

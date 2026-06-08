@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Neckington.Core.Base
 {
-    public abstract class BaseContactFactory
+    public abstract class BaseCreateContactDtoFactory
     {
-        public abstract void ContactCreate();
+        public abstract void CreateContactDtoCreate();
     }
 }

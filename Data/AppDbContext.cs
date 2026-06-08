@@ -11,10 +11,15 @@ namespace Neckington.Data
 { 
     public class ContactDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public ContactDbContext(DbContextOptions<ContactDbContext> options) : base(options)
         {
             
         }
+
+        public ContactDbContext()
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

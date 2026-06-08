@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Neckington.Core.Factory;
 using Neckington.Core.Interfaces;
+using Neckington.DTOs;
 using Neckington.Models;
 using Spectre.Console;
 using System;
@@ -18,21 +19,35 @@ namespace Neckington.Data.Repositories
         { 
              _context = context;
         }
-        public void Create(Contact contact)
+        public void Add(Contact contact)
         {
            _context.Add(contact);
            _context.SaveChanges();
         }
-        public void Update(Contact Contact)
+        public Contact GetByEmail(string email)
         {
-            _context.Contact.Find();
+          var result = _context.Contact.Single(c => c.UserEmail == email);
+          
+          return result;
+        
         }
+        public void Update(Contact contactUpdated)
+        {
+            _context.Update(contactUpdated);
+            _context.SaveChanges();
+        }
+
+        
         public List<Contact> GetAll()
         {
             return _context.Contact.ToList();   
         }
 
-        private readonly ContactDbContext _context;
+        public void Delete(Contact entity)
+        {
+            throw new NotImplementedException();
+        }
 
+        private readonly ContactDbContext _context;
     }
 }

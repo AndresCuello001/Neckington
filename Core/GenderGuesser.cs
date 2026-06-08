@@ -10,12 +10,18 @@ using Neckington.Helpers;
 namespace Neckington.Core
 {
     public class GenderGuesser: BaseAction
-    {
-        public void GetData()
-        {
+    { 
+      public static void InitiliazeGenderGuessser()
+      {
+          GenderGuesser genderGuesserObject = new GenderGuesser();
+          genderGuesserObject.GetData();
+      }
+        
+     public void GetData()
+     {
             int enterValue = ProcessData();
             GetResult(enterValue);
-        }
+    }
 
         public static int ProcessData()
         {
@@ -26,5 +32,5 @@ namespace Neckington.Core
             return enterValue;
         }
         public static void GetResult(int value) => Console.WriteLine(value <= 10 ? "You're a Men" : "You're a Women");
-    }
+    } 
 }

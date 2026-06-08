@@ -1,11 +1,15 @@
-﻿
-using System.Collections;
-using System.ComponentModel.Design;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Logging;
 using Neckington.Core;
 using Neckington.Data;
+using Neckington.Data.Repositories;
 using Neckington.Helpers;
+using Neckington.Models;
+using Neckington.Services;
+using Neckington.View.ConsoleUI;
+using System.Collections;
+using System.ComponentModel.Design;
+
 namespace Neckington
 {
     public class Program
@@ -15,9 +19,17 @@ namespace Neckington
             try
             {
                 LogoHelper.ShowProgramName();
-                Menu.ShowMenu();
+                var dbContext = new ContactDbContext();
+
+                var repository = new ContactRepository<Contact>(dbContext);
+
+                var service = new ContactServices(repository);
+
+                var ui = new ConsoleUI(service);
+                ui.ShowMenu();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Error: " + ex.Message);
             }
         }

@@ -9,15 +9,15 @@ using Neckington.Core.Configuration;
 
 namespace Neckington.Data
 {
-   public class DbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+   public class DbContextFactory : IDesignTimeDbContextFactory<ContactDbContext>
    {
-        public AppDbContext CreateDbContext(string[] args)
+        public ContactDbContext CreateDbContext(string[] args)
         {
-             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+             var optionsBuilder = new DbContextOptionsBuilder<ContactDbContext>();
 
                      optionsBuilder.UseSqlServer(Constants.ConnectionString);
 
-                         return new AppDbContext(optionsBuilder.Options);
+                         return new ContactDbContext(optionsBuilder.Options);
         }
    }  
 }

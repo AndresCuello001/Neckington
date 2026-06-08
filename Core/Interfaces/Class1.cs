@@ -9,8 +9,8 @@ namespace Neckington.Core.Interfaces
 {
     public interface GetEntity 
     {
-         void ContactCreation();
+         void CreateContactDtoCreation();
 
-         void GetContactCreation();
+         void GetCreateContactDtoCreation();
     }
 }

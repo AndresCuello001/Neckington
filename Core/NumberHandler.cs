@@ -15,6 +15,12 @@ namespace Neckington.Core
 {
     public class NumberHandler : BaseAction
     {
+        public static void InitializeNumberHandler()
+        {
+            string DataProcessed = NumberHandler.ProcessData();
+            NumberHandler numberHandlerObject = new NumberHandler();
+            numberHandlerObject.GetData(DataProcessed);
+        }
         public override void GetData(string DataProcessed)
         {
             
@@ -49,7 +55,6 @@ namespace Neckington.Core
             listOfNumbers.Sort();
             Console.WriteLine("Your numbers: " + string.Join(", ", listOfNumbers));
         }
-    
         public static void ResultOrganize(List<int> listOfNumbers, int numberOfList) => GetNumbers(listOfNumbers, numberOfList);
     } 
 }   

@@ -12,7 +12,13 @@ using System.Threading.Tasks;
 namespace Neckington.Core
 {
    public class AverageCalculator: BaseAction
-   {
+   {  
+          public static void InitializeAverageCalculator()
+          {
+                var average = new AverageCalculator();
+                average.ProcessingData();
+          }
+
         public static void ProcessData()
         {
             try

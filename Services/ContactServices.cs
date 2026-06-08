@@ -1,5 +1,4 @@
-﻿using Neckington.Core.Factory;
-using Neckington.Core.Interfaces;
+﻿using Neckington.Core.Interfaces;
 using Neckington.Data.Repositories;
 using Neckington.Helpers;
 using Neckington.Models;
@@ -8,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Neckington.View;
+using Neckington.View.ConsoleUI;
+using Neckington.DTOs;
+
 namespace Neckington.Services
 {
     public class ContactServices
@@ -17,81 +20,58 @@ namespace Neckington.Services
             _contactRepository = contactRepository;
         }
 
-
-        public static Contact GetContactCreation()
+        public void ContactCreate(CreateContactDTO contactdto)
         {
-            var contactServicesObject = new ContactServices();
-            var contact = contactServicesObject.ContactCreation();
-            return contact;
-        }
-
-        public static void PrintContact(List<Contact> contact)
-        {
-            var listOfContacts = contact.OrderBy(c => c.Id).ToList();
-
-            foreach (var items in listOfContacts)
+            var contact = new Contact()
             {
-                Console.WriteLine($@"Contact : {items.Id}
-                Contact FirstName: {items.FirstName}
-                Contact LastName: {items.LastName}
-                Contact Email: {items.UserEmail}
-                Contact PhoneNumber: {items.PhoneNumber}
-                Contact WorkNumber: {items.WorkNumber}
-                Contact Address: {items.Address}"
-                );
+                Id = contactdto.Id,
+                FirstName = contactdto.FirstName,
+                LastName = contactdto.LastName,
+                PhoneNumber = contactdto.PhoneNumber,
+                WorkNumber = contactdto.WorkNumber,
+                Address = contactdto.Address,
+                DateOfBirth = contactdto.DateOfBirth,
+            }; 
+                _contactRepository.Add(contact);
+        }
+        
+        public List<Contact> GetAllContacts()
+        {
+            var contactList = _contactRepository.GetAll();
+            return contactList;
+        }
+
+        public Contact UpdateContact()
+        {
+           var userInput = ConsoleUI.CreateContactDtoToUpdate();
+            
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+                throw new Exception("Invalid Email");
             }
+            var contactToUpdate = _contactRepository.GetByEmail(userInput);
+            if (contactToUpdate == null)
+            {   
+                    throw new Exception("Contact not found");
+            }
+            return contactToUpdate;
         }
 
-        /*public Contact ContactUpdate()
+        public void SaveContactUpdate(Contact contactUdpated) 
         {
-            var contact = new Contact();
-
-            Console.WriteLine("Enter the values you want to update");
-            /
- 
-         */
-
-        public static void CreateContact()
-        {
-            var ContactRepository = ContactRepositoryFactory.CreateContactRepository();
-            var contact = ContactServices.GetContactCreation();
-            ContactRepository.Create(contact);
+            _contactRepository.Update(contactUdpated);
         }
-
-        public static void ReadContact()
+        
+        
+        public void DeleteCreateContactDto()
         {
-
-            var contactRepostory = ContactRepositoryFactory.CreateContactRepository();
-            var ContactList = contactRepostory.GetAll();
-            ContactServices.PrintContact(ContactList);
+            //CreateContactDto CreateContactDtoObject3 = new CreateContactDto();
+            //CreateContactDtoObject3.CreateContactDtoDelete();
         }
-
-        public static void UpdateContact()
-        {
-            //Contact contactObject2 = new Contact();
-            //contactObject2.Update();
-        }
-
-        public static void DeleteContact()
-        {
-            //Contact contactObject3 = new Contact();
-            //contactObject3.ContactDelete();
-        }
-
-
-
-
-
-
-
-
-
-
-
 
         private readonly ContactRepository<Contact> _contactRepository;
     }
-}//Ctrl + F replace all the names
+}
 
 
 

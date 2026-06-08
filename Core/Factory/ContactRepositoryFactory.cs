@@ -10,12 +10,12 @@ using Neckington.Core.Configuration;
 
 namespace Neckington.Core.Factory
 {
-    public static class ContactRepositoryFactory
+    public static class CreateContactDtoRepositoryFactory
     {
-        public static ContactRepository<Contact> CreateContactRepository() 
+        public static ContactRepository<Contact> CreateCreateContactDtoRepository() 
         {
             var options = DatabaseConfig.GetOptions();
-            var context = ContactDbContextFactory.Create();
+            var context = CreateContactDtoDbContextFactory.Create();
 
             return new ContactRepository<Contact>(context);
         }
