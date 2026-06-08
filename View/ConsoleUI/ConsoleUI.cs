@@ -126,21 +126,21 @@ namespace Neckington.View.ConsoleUI
         {
             Console.Clear();
             var contactDTO = new CreateContactDTO();
-            
-            contactDTO.FirstName = InputHelper.ReadRequiredString("Introduce the first name: ");
-            contactDTO.LastName = InputHelper.ReadRequiredString("Introduce the last name: ");
-            contactDTO.DateOfBirth = InputHelper.ReadRequiredDateTime("Introduce the Date Of birth: ");
-            contactDTO.UserEmail = InputHelper.ReadRequiredString("Introduce the Email: ");
-            contactDTO.PhoneNumber = InputHelper.ReadInt("Introduce number: ");
-            contactDTO.WorkNumber = InputHelper.ReadLong("Introduce WorkNumber: ");
-            contactDTO.Address = InputHelper.ReadRequiredString("Introduce the Address: ");
+
+            contactDTO.FirstName = InputHelper.ReadRequiredString(Constants.FirstName);
+            contactDTO.LastName = InputHelper.ReadRequiredString(Constants.LastName);
+            contactDTO.DateOfBirth = InputHelper.ReadRequiredDateTime(Constants.DateOfBirth);
+            contactDTO.UserEmail = InputHelper.ReadRequiredString(Constants.Email);
+            contactDTO.PhoneNumber = InputHelper.ReadInt(Constants.PhoneNumber);
+            contactDTO.WorkNumber = InputHelper.ReadLong(Constants.WorkNumber);
+            contactDTO.Address = InputHelper.ReadRequiredString(Constants.Address);
 
             _contactServices.ContactCreate(contactDTO);
         }
 
         public static string CreateContactDtoToUpdate() 
         {
-            var userInput = InputHelper.ReadRequiredString("Introduce the Gmail of the contact you want to update");
+            var userInput = InputHelper.ReadRequiredString(Constants.GmailRequest);
             return userInput;
         }
 
@@ -148,7 +148,6 @@ namespace Neckington.View.ConsoleUI
         {
             var contactList = _contactServices.GetAllContacts();
             PrintContact(contactList);
-          
         }
       
         public void UpdateContact()

@@ -18,7 +18,7 @@ namespace Neckington.Core.Configuration
             
         Welcome to Neckington
         What options are you looking for?
-        1. Manage CreateContactDtos
+        1. Manage Contacts
         2. Calculate Leap-Year
         3. Average Calculator
         4. Number Handler
@@ -41,10 +41,10 @@ namespace Neckington.Core.Configuration
         public const string InitializeCreateContactDtoStorageMenu =
         """
          -----------------------
-         Register a CreateContactDto
-         Show CreateContactDto
-         Does CreateContactDto exist?
-         Eliminate a CreateContactDto
+         Register a Contact
+         Show Contact
+         Update Contact
+         Eliminate a contact
          --------------------
          """;
         public const string NumOrganizerMenu =
@@ -58,11 +58,7 @@ namespace Neckington.Core.Configuration
         @"CreateContactDto: {0} FirstName: {1} LastName: {2} +
         Age: {3} Number: {4} WorkNumber: {5} Address: {6}"
         """;
-
         public const string ConnectionString = "Server=DESKTOP-H48QVLV;Database=NeckingtonDatabase;Trusted_Connection=True;TrustServerCertificate=True;";
-
-
-
 
         public const string ShowCreateContactDtoDTO =
         """
@@ -70,12 +66,13 @@ namespace Neckington.Core.Configuration
         Name: {CreateContactDto.FirstName} {CreateContactDto.LastName}
         Email: CreateContactDto.UserEmail}
         """;
-    
-    
-    
+      public const string FirstName = "Introduce the first name: ";
+      public const string LastName = "Introduce the last name: ";
+      public const string DateOfBirth = "Introduce the Date Of Birth: ";
+      public const string Email = "Introduce the Email: ";
+      public const string PhoneNumber = "Introduce number: ";
+      public const string WorkNumber = "Introduce WorkNumber: ";
+      public const string Address = "Introduce the Address: ";
+     public const string GmailRequest = "Introduce the Gmail of the contact you want to update";
     }
-
-
-
-
 }
