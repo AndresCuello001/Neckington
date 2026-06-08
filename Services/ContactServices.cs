@@ -43,7 +43,7 @@ namespace Neckington.Services
 
         public Contact UpdateContact()
         {
-           var userInput = ConsoleUI.CreateContactDtoToUpdate();
+           var userInput = ConsoleUI.ContactToUpdate();
             
             if (string.IsNullOrWhiteSpace(userInput))
             {
@@ -61,12 +61,26 @@ namespace Neckington.Services
         {
             _contactRepository.Update(contactUdpated);
         }
-        
-        
-        public void DeleteCreateContactDto()
+      
+        public Contact DeleteContact()
         {
-            //CreateContactDto CreateContactDtoObject3 = new CreateContactDto();
-            //CreateContactDtoObject3.CreateContactDtoDelete();
+          var userRequestToEliminate = ConsoleUI.ExecuteContactDeletion();
+
+            if (string.IsNullOrWhiteSpace(userRequestToEliminate))
+            {
+                throw new Exception("Invalid Email");
+            }
+            var contactToEliminate = _contactRepository.GetByEmail(userRequestToEliminate);
+            if (contactToEliminate == null)
+            {
+                throw new Exception("Contact not found");
+            }
+            return contactToEliminate;
+        }
+
+        public void EliminateContact(Contact contact) 
+        {
+             _contactRepository.Delete(contact);
         }
 
         private readonly ContactRepository<Contact> _contactRepository;

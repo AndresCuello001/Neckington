@@ -73,6 +73,7 @@ namespace Neckington.Core.Configuration
       public const string PhoneNumber = "Introduce number: ";
       public const string WorkNumber = "Introduce WorkNumber: ";
       public const string Address = "Introduce the Address: ";
-     public const string GmailRequest = "Introduce the Gmail of the contact you want to update";
+      public const string GmailRequest = "Introduce the Gmail of the contact you want to update";
+      public const string GmailToEliminateContact = "Introduce the Gmail of the contact you want to Eliminate";
     }
 }

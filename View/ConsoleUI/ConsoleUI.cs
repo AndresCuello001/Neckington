@@ -104,7 +104,7 @@ namespace Neckington.View.ConsoleUI
                     UpdateContact();
                     break;
                 case 4:
-                   // _contactServices.DeleteCreateContactDto();
+                   DeleteContact();
                     break;
                 default:
                     throw new ArgumentException("Option doesn't exits");
@@ -138,7 +138,7 @@ namespace Neckington.View.ConsoleUI
             _contactServices.ContactCreate(contactDTO);
         }
 
-        public static string CreateContactDtoToUpdate() 
+        public static string ContactToUpdate() 
         {
             var userInput = InputHelper.ReadRequiredString(Constants.GmailRequest);
             return userInput;
@@ -198,6 +198,26 @@ namespace Neckington.View.ConsoleUI
             _contactServices.SaveContactUpdate(contactSelected);
         }
 
+        public static string ExecuteContactDeletion() 
+        {
+            var userInput = InputHelper.ReadRequiredString(Constants.GmailToEliminateContact);
+            return userInput;
+
+        }
+      
+        public void DeleteContact() 
+        {
+            var contactToEliminate = _contactServices.DeleteContact();
+            var response = InputHelper.ReadRequiredString("Are you sure to eliminate this contact?  Press Y/N ");
+            if (response == "Y")
+            {
+                _contactServices.EliminateContact(contactToEliminate);
+            }
+            else if (response == "N") 
+            {
+                Console.WriteLine("Contact couldn't be elimate");
+            }
+        }
         private readonly ContactServices _contactServices;
    }
 }

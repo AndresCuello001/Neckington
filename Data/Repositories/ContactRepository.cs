@@ -29,25 +29,25 @@ namespace Neckington.Data.Repositories
           var result = _context.Contact.Single(c => c.UserEmail == email);
           
           return result;
-        
         }
+
         public void Update(Contact contactUpdated)
         {
             _context.Update(contactUpdated);
             _context.SaveChanges();
         }
 
-        
         public List<Contact> GetAll()
         {
             return _context.Contact.ToList();   
         }
 
-        public void Delete(Contact entity)
+        public void Delete(Contact contact)
         {
-            throw new NotImplementedException();
+            _context.Remove(contact);
+            _context.SaveChanges();
         }
-
+       
         private readonly ContactDbContext _context;
     }
 }
