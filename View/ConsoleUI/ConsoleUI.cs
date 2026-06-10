@@ -3,17 +3,15 @@ using Neckington.Core;
 using Neckington.Core.Configuration;
 using Neckington.Core.Factory;
 using Neckington.Data;
-using Neckington.DTO;
-using Neckington.DTOs;
+using Neckington.Application.DTOs;
 using Neckington.Helpers;
-using Neckington.Models;
-using Neckington.Services;
 using System;
 using System.Collections.Generic;   
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Neckington.Application.Services;
 
 namespace Neckington.View.ConsoleUI
 {
@@ -125,7 +123,7 @@ namespace Neckington.View.ConsoleUI
         public void ContactCreation()
         {
             Console.Clear();
-            var contactDTO = new CreateContactDTO();
+            var contactDTO = new ContactDTO();
 
             contactDTO.FirstName = InputHelper.ReadRequiredString(Constants.FirstName);
             contactDTO.LastName = InputHelper.ReadRequiredString(Constants.LastName);
@@ -138,21 +136,20 @@ namespace Neckington.View.ConsoleUI
             _contactServices.ContactCreate(contactDTO);
         }
 
-        public static string ContactToUpdate() 
-        {
-            var userInput = InputHelper.ReadRequiredString(Constants.GmailRequest);
-            return userInput;
-        }
-
         public void ReadContacts() 
         {
             var contactList = _contactServices.GetAllContacts();
-            PrintContact(contactList);
         }
-      
-        public void UpdateContact()
+       
+        public void ContactToUpdate()
         {
-            var contactSelected = _contactServices.UpdateContact();
+            var userInput = InputHelper.ReadRequiredString(Constants.GmailRequest);
+            _contactServices.ExecuteContactUpdate(userInput);
+            UpdateContact(userInput);
+        }
+        public void UpdateContact(string Useremail)
+        {
+            var contactSelected =  _contactServices.ProcessContactUpdate(Useremail);
             var newFirstName = InputHelper.ReadRequiredString($"Actual firstname: " + contactSelected.FirstName);
             if (!String.IsNullOrEmpty(newFirstName)) 
             {
@@ -194,20 +191,19 @@ namespace Neckington.View.ConsoleUI
             {
                 contactSelected.Address = newAddress;
             }
-
             _contactServices.SaveContactUpdate(contactSelected);
         }
 
-        public static string ExecuteContactDeletion() 
+        public void ExecuteContactDeletion() 
         {
             var userInput = InputHelper.ReadRequiredString(Constants.GmailToEliminateContact);
-            return userInput;
-
+            DeleteContact(userInput);
         }
       
-        public void DeleteContact() 
+        public void DeleteContact(string userEmail) 
         {
-            var contactToEliminate = _contactServices.DeleteContact();
+            var contactToEliminate = _contactServices.ExecuteContactDelete(userEmail);
+           
             var response = InputHelper.ReadRequiredString("Are you sure to eliminate this contact?  Press Y/N ");
             if (response == "Y")
             {
