@@ -21,13 +21,11 @@ namespace Neckington.View.ConsoleUI
         { 
             _contactServices = contactServices;
         }
-        
         public int ProcessMenu()
         {
             Console.Clear();
             string selection = InputHelper.ReadRequiredString(Constants.Menu);
             int OptionSelection = InputHelper.ReadInt(selection);
-
             return OptionSelection;
         }
 
@@ -46,18 +44,6 @@ namespace Neckington.View.ConsoleUI
                 {
                     case 1:
                         InitializeCreateContactDtoStorage();
-                        break;
-                    case 2:
-                       LeapYear.InitializeLeapYear();
-                        break;
-                    case 3:
-                        AverageCalculator.InitializeAverageCalculator();
-                        break;
-                    case 4:
-                        NumberHandler.InitializeNumberHandler();
-                        break;
-                    case 5:
-                        GenderGuesser.InitiliazeGenderGuessser();
                         break;
                     default:
                         throw new ArgumentException("The selection number doesn't exist");
@@ -102,14 +88,14 @@ namespace Neckington.View.ConsoleUI
                     UpdateContact();
                     break;
                 case 4:
-                   DeleteContact();
+                    DeleteContact();
                     break;
                 default:
                     throw new ArgumentException("Option doesn't exits");
             }
         }
 
-        public static void PrintContact(List<Contact> listOfContacts)
+        /*public static void PrintContact(List<Contact> listOfContacts)
         {
             var contactList = listOfContacts.OrderBy(c => c.Id).ToList();
 
@@ -118,7 +104,7 @@ namespace Neckington.View.ConsoleUI
                 Console.WriteLine(Constants.ShowCreateContactDtoDTO);
                 Console.WriteLine(new string('-', 50));
             }
-        }
+        }*/
 
         public void ContactCreation()
         {
@@ -141,15 +127,15 @@ namespace Neckington.View.ConsoleUI
             var contactList = _contactServices.GetAllContacts();
         }
        
-        public void ContactToUpdate()
+        public void UpdateContact()
         {
             var userInput = InputHelper.ReadRequiredString(Constants.GmailRequest);
             _contactServices.ExecuteContactUpdate(userInput);
-            UpdateContact(userInput);
+            InitContactUpdate(userInput);
         }
-        public void UpdateContact(string Useremail)
+        public void InitContactUpdate(string userEmail)
         {
-            var contactSelected =  _contactServices.ProcessContactUpdate(Useremail);
+            var contactSelected =  _contactServices.ProcessContactUpdate(userEmail);
             var newFirstName = InputHelper.ReadRequiredString($"Actual firstname: " + contactSelected.FirstName);
             if (!String.IsNullOrEmpty(newFirstName)) 
             {
@@ -194,15 +180,15 @@ namespace Neckington.View.ConsoleUI
             _contactServices.SaveContactUpdate(contactSelected);
         }
 
-        public void ExecuteContactDeletion() 
+        public void DeleteContact() 
         {
             var userInput = InputHelper.ReadRequiredString(Constants.GmailToEliminateContact);
-            DeleteContact(userInput);
+            ExecuteContactDeletion(userInput);
         }
       
-        public void DeleteContact(string userEmail) 
+        public void ExecuteContactDeletion(string userEmail) 
         {
-            var contactToEliminate = _contactServices.ExecuteContactDelete(userEmail);
+            var contactToEliminate = _contactServices.SelectContactDelete(userEmail);
            
             var response = InputHelper.ReadRequiredString("Are you sure to eliminate this contact?  Press Y/N ");
             if (response == "Y")
