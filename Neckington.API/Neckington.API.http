@@ -1,0 +1,6 @@
+@Neckington.API_HostAddress = http://localhost:5202
+
+GET {{Neckington.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
