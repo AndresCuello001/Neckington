@@ -21,7 +21,7 @@ namespace Neckington.Infrastructure
 
             services.AddScoped<CreateContactUseCases>();
             services.AddScoped<DeleteContactsByEmail>();
-            services.AddScoped<UpdateContactsByEmails>();
+            services.AddScoped<UpdateContactsById>();
             services.AddScoped<GetallContacts>();
             return services;
         } 

@@ -19,7 +19,7 @@ namespace Neckington.Application.Features.Contacts.CreateContact
         
         }
         
-        public async Task<Contact> ContactCreate(RegisterContactDTO contact)
+        public async Task<Contact> ContactCreate(ContactDTO contact)
         {
             var newContact = ContactMapper.ToEntity(contact);
 

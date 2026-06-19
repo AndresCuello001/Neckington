@@ -10,7 +10,7 @@ namespace Neckington.Application.Mappers
 {
     public static class ContactMapper
     {
-        public static Contact ToEntity(RegisterContactDTO contactDto) {
+        public static Contact ToEntity(ContactDTO contactDto) {
 
             return new Contact
             {

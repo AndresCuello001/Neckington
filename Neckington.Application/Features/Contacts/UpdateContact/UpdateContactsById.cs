@@ -9,37 +9,32 @@ using System.Threading.Tasks;
 
 namespace Neckington.Application.Features.Contacts.UpdateContact
 {
-     public class UpdateContactsByEmails
+     public class UpdateContactsById
      {
-        public UpdateContactsByEmails(IContactRepository<Contact> contactRepository) 
+        public UpdateContactsById(IContactRepository<Contact> contactRepository) 
         { 
             _contactRepository = contactRepository;  
         }
-        
-        public void ExecuteContactUpdate(string UserEmail)
-        {
-            if (string.IsNullOrWhiteSpace(UserEmail))
-            {
-                throw new Exception("Invalid Email");
-            }
-            ProcessContactUpdate(UserEmail);
-        }
 
-        public async Task ProcessContactUpdate(string UserEmail)
+        public async Task ExecuteContactUpdate(int Id)
         {
-            var contactToUpdate = await _contactRepository.GetByEmailAsync(UserEmail);
-            if (contactToUpdate == null)
+           var contact = await _contactRepository.GetByIdAsync(Id);
+
+            if (contact is null)
             {
                 throw new Exception("Contact not found");
             }
-            SaveContactUpdate(contactToUpdate);
+            else
+            {
+                SaveContactUpdate(contact);
+            }        
         }
 
         public void SaveContactUpdate(Contact contactUdpated)
         {
             _contactRepository.UpdateAsync(contactUdpated);
         }
-
+            
         private readonly IContactRepository<Contact> _contactRepository;
-    }
+     }
 }

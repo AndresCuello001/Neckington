@@ -24,9 +24,9 @@ namespace Neckington.Data.Repositories
            await _context.SaveChangesAsync();
         }
 
-        public async Task<Contact> GetByEmailAsync(string email)
+        public async Task<Contact> GetByIdAsync(int id)
         {
-          var result = await _context.Contact.SingleAsync(c => c.UserEmail == email);
+          var result = await _context.Contact.SingleAsync(c => c.Id == id);
           
           return result;
         }

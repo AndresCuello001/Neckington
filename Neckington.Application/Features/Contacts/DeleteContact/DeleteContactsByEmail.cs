@@ -15,26 +15,21 @@ namespace Neckington.Application.Features.Contacts.DeleteContact
         { 
              _contactRepository = contactRepository;
         }
-        public async Task SelectContactDelete(string UserEmail)
+       
+        public async Task GiveContactToDelete(int Id)
         {
-            if (string.IsNullOrWhiteSpace(UserEmail))
-            {
-                throw new Exception("Invalid Email");
-            }
+            var contact= await _contactRepository.GetByIdAsync(Id);
 
-           await GiveContactToDelete(UserEmail);
-        }
-        
-        public async Task<Contact> GiveContactToDelete(string UserEmail)
-        {
-            var contactToEliminate = await _contactRepository.GetByEmailAsync(UserEmail);
-            if (contactToEliminate == null)
+            if (contact == null)
             {
                 throw new Exception("Contact not found");
             }
-            return contactToEliminate;
+            else
+            {
+                EliminateContact(contact);
+            }
         }
-
+        
         public void EliminateContact(Contact contact)
         {
             _contactRepository.DeleteAsync(contact);

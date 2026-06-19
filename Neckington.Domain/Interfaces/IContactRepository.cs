@@ -11,7 +11,7 @@ namespace Neckington.Domain.Interfaces
     {
         Task AddAsync(T entity);
         Task<List<T>> GetAllAsync();
-        Task<T> GetByEmailAsync(string email);
+        Task<T> GetByIdAsync(int Id);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
 

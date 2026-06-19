@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Neckington.Application.DTOs
 {
-    public class RegisterContactDTO
+    public class ContactDTO
     {
        public int Id { get; set; }
        public string? FirstName { get; set; }
