@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Neckington.Data.Repositories;
-using Neckington.Data;
+using Neckington.Infrastructure.Data.Repositories;
+using Neckington.Infrastructure.Data;
 using Neckington.Domain.Entities;
-using Neckington.Core.Configuration;
+using Neckington.Infrastructure.Configuration;
 
 namespace Neckington.Infrastructure.Factory
 {

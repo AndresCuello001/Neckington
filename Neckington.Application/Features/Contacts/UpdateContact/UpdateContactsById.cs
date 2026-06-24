@@ -26,13 +26,14 @@ namespace Neckington.Application.Features.Contacts.UpdateContact
             }
             else
             {
-                SaveContactUpdate(contact);
+                await SaveContactUpdate(contact);
             }        
         }
 
-        public void SaveContactUpdate(Contact contactUdpated)
+        public async Task SaveContactUpdate(Contact contactUdpated)
         {
-            _contactRepository.UpdateAsync(contactUdpated);
+            await _contactRepository.UpdateAsync(contactUdpated);
+        
         }
             
         private readonly IContactRepository<Contact> _contactRepository;

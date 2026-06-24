@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Neckington.Migrations
+namespace Neckington.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCleanSetup : Migration

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Neckington.Core.Configuration;
-using Neckington.Data;
+using Neckington.Infrastructure.Configuration;
+using Neckington.Infrastructure.Data;
 
 namespace Neckington.Infrastructure.Factory
 {

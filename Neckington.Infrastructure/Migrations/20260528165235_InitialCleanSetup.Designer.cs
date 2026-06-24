@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Neckington.Data;
+using Neckington.Infrastructure.Data;
 
 #nullable disable
 
-namespace Neckington.Migrations
+namespace Neckington.Infrastructure.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    [Migration("20260529233748_UserEmail")]
-    partial class UserEmail
+    [Migration("20260528165235_InitialCleanSetup")]
+    partial class InitialCleanSetup
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,17 +50,10 @@ namespace Neckington.Migrations
                     b.Property<long>("PhoneNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<long>("WorkNumber")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserEmail")
-                        .IsUnique()
-                        .HasFilter("[UserEmail] IS NOT NULL");
 
                     b.ToTable("CreateContactDto");
                 });

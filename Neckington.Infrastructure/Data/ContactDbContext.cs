@@ -5,19 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Neckington.Core.Configuration;
+using Neckington.Infrastructure.Configuration;
 
-namespace Neckington.Data 
-{ 
+namespace Neckington.Infrastructure.Data 
+{   
     public class ContactDbContext : DbContext
     {
         public ContactDbContext(DbContextOptions<ContactDbContext> options) : base(options)
         {
             
-        }
-
-        public ContactDbContext()
-        {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

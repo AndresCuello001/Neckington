@@ -16,8 +16,8 @@ namespace Neckington.Domain.Entities
         public string? LastName { get; set; } 
         public DateTime? DateOfBirth { get; set; }
         public string? UserEmail {get; set;}
-        public long PhoneNumber { get; set; }
-        public long WorkNumber { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? WorkNumber { get; set; }
         public string? Address { get; set; }
       
        // [ForeignKey]

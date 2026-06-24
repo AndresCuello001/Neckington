@@ -4,14 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Neckington.Data;
+using Neckington.Infrastructure.Data;
+
 
 #nullable disable
 
-namespace Neckington.Migrations
+namespace Neckington.Infrastructure.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    partial class CreateContactDtoDbContextModelSnapshot : ModelSnapshot
+    partial class ContactDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +23,7 @@ namespace Neckington.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Neckington.Models.CreateContactDto", b =>
+            modelBuilder.Entity("Neckington.Domain.Entities.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +60,7 @@ namespace Neckington.Migrations
                         .IsUnique()
                         .HasFilter("[UserEmail] IS NOT NULL");
 
-                    b.ToTable("CreateContactDto");
+                    b.ToTable("Contact");
                 });
 #pragma warning restore 612, 618
         }

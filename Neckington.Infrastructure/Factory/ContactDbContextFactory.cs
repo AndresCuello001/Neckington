@@ -1,5 +1,5 @@
-﻿using Neckington.Core.Configuration;
-using Neckington.Data;
+﻿using Neckington.Infrastructure.Configuration;
+using Neckington.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

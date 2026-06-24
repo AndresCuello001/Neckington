@@ -3,13 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Neckington.Infrastructure.Factory;
 using Neckington.Domain.Interfaces;
 using Neckington.Domain.Entities;
+using Neckington.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Data.Repositories
+namespace Neckington.Infrastructure.Data.Repositories
 {
     public class ContactRepository<T>: IContactRepository<Contact>
     {

@@ -3,29 +3,26 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Neckington.Data;
+using Neckington.Infrastructure.Data;
 
 #nullable disable
 
 namespace Neckington.Migrations
 {
     [DbContext(typeof(ContactDbContext))]
-    [Migration("20260528165235_InitialCleanSetup")]
-    partial class InitialCleanSetup
+    partial class ContactDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "9.0.16")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Neckington.Models.CreateContactDto", b =>
+            modelBuilder.Entity("Neckington.Domain.Entities.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,15 +44,22 @@ namespace Neckington.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("PhoneNumber")
-                        .HasColumnType("bigint");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("WorkNumber")
-                        .HasColumnType("bigint");
+                    b.Property<string>("UserEmail")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("WorkNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CreateContactDto");
+                    b.HasIndex("UserEmail")
+                        .IsUnique()
+                        .HasFilter("[UserEmail] IS NOT NULL");
+
+                    b.ToTable("Contact");
                 });
 #pragma warning restore 612, 618
         }

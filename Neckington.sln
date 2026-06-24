@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neckington.Application", "N
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neckington.Domain", "Neckington.Domain\Neckington.Domain.csproj", "{8E7C6CA2-4C36-19AF-79E1-C95ADC3ABF08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neckington.Infrastructure", "Neckington.Infrestructure\Neckington.Infrastructure.csproj", "{30F078B1-0356-227D-D0E0-9F369911B958}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neckington.Infrastructure", "Neckington.Infrastructure\Neckington.Infrastructure.csproj", "{97BA199D-5BCA-FE22-9D54-107DD6F4E9AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{8E7C6CA2-4C36-19AF-79E1-C95ADC3ABF08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E7C6CA2-4C36-19AF-79E1-C95ADC3ABF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E7C6CA2-4C36-19AF-79E1-C95ADC3ABF08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30F078B1-0356-227D-D0E0-9F369911B958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30F078B1-0356-227D-D0E0-9F369911B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30F078B1-0356-227D-D0E0-9F369911B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30F078B1-0356-227D-D0E0-9F369911B958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BA199D-5BCA-FE22-9D54-107DD6F4E9AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BA199D-5BCA-FE22-9D54-107DD6F4E9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BA199D-5BCA-FE22-9D54-107DD6F4E9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BA199D-5BCA-FE22-9D54-107DD6F4E9AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

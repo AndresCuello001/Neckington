@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Neckington.Application.Features.Contacts.DeleteContact
 {
      public class DeleteContactsByEmail
-    {
+     {
         public DeleteContactsByEmail(IContactRepository<Contact> contactRepository)
         { 
              _contactRepository = contactRepository;
@@ -26,15 +26,15 @@ namespace Neckington.Application.Features.Contacts.DeleteContact
             }
             else
             {
-                EliminateContact(contact);
+               await EliminateContact(contact);
             }
         }
         
-        public void EliminateContact(Contact contact)
+        public async Task EliminateContact(Contact contact)
         {
-            _contactRepository.DeleteAsync(contact);
+           await _contactRepository.DeleteAsync(contact);
         }
 
         private readonly IContactRepository<Contact> _contactRepository;
-    }
+     }
 }

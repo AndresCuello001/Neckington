@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Neckington.Migrations
+namespace Neckington.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class UserEmail : Migration

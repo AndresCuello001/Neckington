@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Core.Configuration
+namespace Neckington.Infrastructure.Configuration
 {
     public static class Constants
     {

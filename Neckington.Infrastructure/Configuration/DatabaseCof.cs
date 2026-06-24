@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Neckington.Data;
+using Neckington.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Neckington.Core.Configuration
+namespace Neckington.Infrastructure.Configuration
 { 
     public static class DatabaseConfig
     {

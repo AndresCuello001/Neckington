@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Neckington.Domain.Interfaces;
-using Neckington.Data;
-using Neckington.Data.Repositories;
+using Neckington.Infrastructure.Data;
+using Neckington.Infrastructure.Data.Repositories;
 using Neckington.Domain.Entities;
 using Neckington.Application.Features.Contacts;
 using Neckington.Application.Features.Contacts.CreateContact;
